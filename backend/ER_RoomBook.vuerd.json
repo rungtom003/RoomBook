@@ -1,0 +1,1431 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": -118,
+    "scrollLeft": -97,
+    "zoomLevel": 0.9,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": false,
+      "columnPrimaryKey": true,
+      "columnUnique": false,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "MySQL",
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "tb_building",
+        "comment": "ตารางอาคาร",
+        "columns": [
+          {
+            "name": "bd_Id",
+            "comment": "รหัสอาคาร",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "3af8594a-1699-47db-8b5f-6e3d7bfce8e5"
+          },
+          {
+            "name": "bd_Name",
+            "comment": "ชื่ออาคาร",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "ebfec713-ee8d-4ed5-909a-8219bd67b085"
+          },
+          {
+            "name": "bd_Floor",
+            "comment": "จำนวนชั้น",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "137599fc-7352-43b9-ac5e-bc91543465ea"
+          },
+          {
+            "name": "bd_NumRoom",
+            "comment": "จำนวนห้องทั้งหมด",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 85.814453125,
+              "widthComment": 100.78857421875,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "a66b6b47-8f96-48a7-abd3-29f7cecb8cde"
+          },
+          {
+            "name": "bd_Detail",
+            "comment": "รายละเอียดเพิ่มเติม",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 104.24169921875,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "ff07767f-ed67-4db4-a1db-dc6a342e7e57"
+          },
+          {
+            "name": "bd_Address",
+            "comment": "ที่อยู่",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 71.3798828125,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "7af0a35b-9d39-4b03-9fd4-a091710a1af6"
+          },
+          {
+            "name": "bd_Road",
+            "comment": "ถนน",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "541f391e-c294-4fe7-9024-c8326bd4253e"
+          },
+          {
+            "name": "bd_Subdistrict",
+            "comment": "ตำบล",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 84.3798828125,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "7388f98b-a16b-4e70-ba35-898aeae33710"
+          },
+          {
+            "name": "bd_District",
+            "comment": "อำเภอ",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 63.4072265625,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "2b0fb5f8-ab9e-4d48-804e-b7f04a40ee4d"
+          },
+          {
+            "name": "bd_Province",
+            "comment": "จังหวัด",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 74.26806640625,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "bf6fce9f-66be-4e2f-a8f0-a517f607c3ad"
+          },
+          {
+            "name": "bd_Img",
+            "comment": "ชื่อรูปภาพประกอบอาคาร",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 120,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "6d29faf8-c831-4616-93e8-2951ccedde98"
+          },
+          {
+            "name": "bd_DateTimeUpdate",
+            "comment": "วันเวลาที่อัพเดทข้อมูล",
+            "dataType": "DATETIME",
+            "default": "CURRENT_TIMESTAMP",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 121.4755859375,
+              "widthComment": 120,
+              "widthDataType": 66.7587890625,
+              "widthDefault": 147.6533203125
+            },
+            "id": "e1771fe5-6d23-4900-a2b0-f87a6078d3d1"
+          },
+          {
+            "name": "bd_DateTime",
+            "comment": "วันเวลา",
+            "dataType": "DATETIME",
+            "default": "CURRENT_TIMESTAMP",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 79.5556640625,
+              "widthComment": 60,
+              "widthDataType": 66.7587890625,
+              "widthDefault": 147.6533203125
+            },
+            "id": "3ad470a2-63d0-4308-9d07-45f9afa4b771"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 43,
+          "top": 99,
+          "zIndex": 5,
+          "widthName": 64.88623046875,
+          "widthComment": 68.50439453125
+        },
+        "visible": true,
+        "id": "a5679b57-9d26-4544-9e76-a34b4fd81e9e"
+      },
+      {
+        "name": "tb_room",
+        "comment": "ตารางห้อง",
+        "columns": [
+          {
+            "name": "r_Id",
+            "comment": "รหัสห้อง",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "372076db-7089-4b2b-a033-460a9c9e4b24"
+          },
+          {
+            "name": "bd_Id",
+            "comment": "รหัสอาคาร",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "d763f950-f615-4bdf-b7c8-178788eeb7c5"
+          },
+          {
+            "name": "rt_Id",
+            "comment": "รหัสประเภทห้อง",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 88.328125,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "bc4d4ff2-7bbb-4673-99a6-ae24c3276b53"
+          },
+          {
+            "name": "r_Name",
+            "comment": "ชื่อห้อง",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "73b75e50-6c8e-44b1-9109-1b94cb5ff688"
+          },
+          {
+            "name": "r_NumSeat",
+            "comment": "จำนวนที่นั้ง",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 67.7490234375,
+              "widthComment": 61.4013671875,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "bf13bfd0-cc19-4dc1-bd0e-97292f2c2be2"
+          },
+          {
+            "name": "r_Detail",
+            "comment": "รายละเอียดห้องเพิ่มเติม",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 120,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "6f15040d-4a0b-4cd1-85c2-767eec6e3e2a"
+          },
+          {
+            "name": "r_Img",
+            "comment": "ชื่อรูปภาพประกอบห้อง",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 120,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "eb208392-8a01-4289-b800-97e1fb78d4f4"
+          },
+          {
+            "name": "r_DateTimeUpdate",
+            "comment": "วันเวลาอัพเดทข้อมูล",
+            "dataType": "DATETIME",
+            "default": "CURRENT_TIMESTAMP",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 111.3447265625,
+              "widthComment": 111.255859375,
+              "widthDataType": 66.7587890625,
+              "widthDefault": 147.6533203125
+            },
+            "id": "ec45879d-f182-4495-a381-90af1220a7ef"
+          },
+          {
+            "name": "r_DateTime",
+            "comment": "วันเวลา",
+            "dataType": "DATETIME",
+            "default": "CURRENT_TIMESTAMP",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 69.4248046875,
+              "widthComment": 60,
+              "widthDataType": 66.7587890625,
+              "widthDefault": 147.6533203125
+            },
+            "id": "3b192d1f-8730-4719-a7b7-5c6141ff6459"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 49,
+          "top": 509,
+          "zIndex": 6,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "ab655e91-e41e-4d72-bb1f-e83339df4203"
+      },
+      {
+        "name": "tb_user",
+        "comment": "ตาราง user",
+        "columns": [
+          {
+            "name": "u_Id",
+            "comment": "รหัส user",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "4c8d43bc-593d-4156-a4c3-6dacfb0c9b92"
+          },
+          {
+            "name": "ur_Id",
+            "comment": "รหัสสิทธิ์",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "b4eb7bb4-c7e8-4739-82fc-4bca2da58bc0"
+          },
+          {
+            "name": "u_FirstName",
+            "comment": "ชื่อ",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 76.4072265625,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "87f866a9-9680-4ac5-9c73-4416f13f4e05"
+          },
+          {
+            "name": "u_LastName",
+            "comment": "นามสกุล",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 75.708984375,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "94091bdc-e863-44b8-b4c0-2b3b71dfeb9a"
+          },
+          {
+            "name": "u_Username",
+            "comment": "ชื่อผู้ใช้",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 76.42626953125,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "b8973e28-3091-4de2-96cd-ccc8b4e87820"
+          },
+          {
+            "name": "u_PasswordHash",
+            "comment": "รหัสผ่าน",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 103.88623046875,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "d27fe719-3360-4652-bd06-af1265c551a4"
+          },
+          {
+            "name": "u_Phone",
+            "comment": "เบอร์โทร",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "e4481e70-9103-4e1d-9987-91fc4b05b09c"
+          },
+          {
+            "name": "u_StatusDelete",
+            "comment": "สถานะลบ user",
+            "dataType": "BOOLEAN",
+            "default": "0",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 90.892578125,
+              "widthComment": 82.69140625,
+              "widthDataType": 64.8544921875,
+              "widthDefault": 60
+            },
+            "id": "24de57c3-4f53-4f4f-8ef6-c0846137b94d"
+          },
+          {
+            "name": "u_DateTimeUpdate",
+            "comment": "วันเวลาอัพเดทข้อมูล",
+            "dataType": "DATETIME",
+            "default": "CURRENT_TIMESTAMP",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 114.24560546875,
+              "widthComment": 111.255859375,
+              "widthDataType": 66.7587890625,
+              "widthDefault": 147.6533203125
+            },
+            "id": "ef96d8ed-bc43-4a42-87c8-663b50390fda"
+          },
+          {
+            "name": "u_DateTime",
+            "comment": "วันเวลา",
+            "dataType": "DATETIME",
+            "default": "CURRENT_TIMESTAMP",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 72.32568359375,
+              "widthComment": 60,
+              "widthDataType": 66.7587890625,
+              "widthDefault": 147.6533203125
+            },
+            "id": "74060536-87fa-4dd7-8bb5-9ff380354573"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 626,
+          "top": 105,
+          "zIndex": 4,
+          "widthName": 60,
+          "widthComment": 63.4833984375
+        },
+        "visible": true,
+        "id": "17b9abe9-9c4e-4543-be04-53aec30f3d04"
+      },
+      {
+        "name": "tb_userRole",
+        "comment": "ตารางสิทธ์ user",
+        "columns": [
+          {
+            "name": "ur_Id",
+            "comment": "รหัสสิทธิ์",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "fb322fc5-6831-452a-932a-5455669e1c96"
+          },
+          {
+            "name": "ur_Name",
+            "comment": "ชื่อ",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "31176c12-2f7f-435a-aefa-55476009ece9"
+          },
+          {
+            "name": "ur_DateTimeUpdate",
+            "comment": "วันเวลาอัพเดทข้อมูล",
+            "dataType": "DATETIME",
+            "default": "CURRENT_TIMESTAMP",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 118.57470703125,
+              "widthComment": 111.255859375,
+              "widthDataType": 66.7587890625,
+              "widthDefault": 147.6533203125
+            },
+            "id": "4125419d-b4b4-46f2-a586-4be0f9605aae"
+          },
+          {
+            "name": "ur_DateTime",
+            "comment": "วันเวลา",
+            "dataType": "DATETIME",
+            "default": "CURRENT_TIMESTAMP",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 76.65478515625,
+              "widthComment": 60,
+              "widthDataType": 66.7587890625,
+              "widthDefault": 147.6533203125
+            },
+            "id": "d7876618-e187-4e23-bac2-712a6c7249a2"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 1279.7573,
+          "top": 166,
+          "zIndex": 3,
+          "widthName": 72.09716796875,
+          "widthComment": 87.71240234375
+        },
+        "visible": true,
+        "id": "f4cc9936-2764-4db3-af69-91ffa4ef3da6"
+      },
+      {
+        "name": "tb_Book",
+        "comment": "ตารางการจอง",
+        "columns": [
+          {
+            "name": "b_Id",
+            "comment": "รหัสการจอง",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 65.17822265625,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "110383ef-ba8e-4b19-b4b5-257d6405ecb1"
+          },
+          {
+            "name": "u_Id",
+            "comment": "รหัส user",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "3ce4fb71-00dc-4845-b911-ffd22dc5f1b2"
+          },
+          {
+            "name": "r_Id",
+            "comment": "รหัสห้อง",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "34f9a86e-018b-43d0-b3ec-f883a4ea4cc1"
+          },
+          {
+            "name": "b_Head",
+            "comment": "หัวข้อการจอง",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 73.703125,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "6ccbc123-af66-4951-b94c-19af4f489498"
+          },
+          {
+            "name": "b_NumParticipant",
+            "comment": "จำนวนผู้เข้าใช้งาน",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 105.3271484375,
+              "widthComment": 99.09375,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "30a07fe4-1c73-4fa3-a700-fd1d32c5dd8d"
+          },
+          {
+            "name": "b_StartDateTime",
+            "comment": "วันเวลาเริ่มจอง",
+            "dataType": "DATETIME",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 99.779296875,
+              "widthComment": 80.2412109375,
+              "widthDataType": 66.7587890625,
+              "widthDefault": 60
+            },
+            "id": "ece525ce-aa11-400f-99bc-48fe07760f29"
+          },
+          {
+            "name": "b_EndDateTime",
+            "comment": "วันสิ้นสุดการจอง",
+            "dataType": "DATETIME",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 95.45654296875,
+              "widthComment": 89.0009765625,
+              "widthDataType": 66.7587890625,
+              "widthDefault": 60
+            },
+            "id": "4891144b-eacc-4085-80fa-ed2828ed250b"
+          },
+          {
+            "name": "b_Note",
+            "comment": "หมายเหตุเพิ่มเติม",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 94.7646484375,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "eb18ac35-1521-4dda-918c-45ba9285620a"
+          },
+          {
+            "name": "b_DateTime",
+            "comment": "วันเวลาจอง",
+            "dataType": "DATETIME",
+            "default": "CURRENT_TIMESTAMP",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 72.32568359375,
+              "widthComment": 62.556640625,
+              "widthDataType": 66.7587890625,
+              "widthDefault": 147.6533203125
+            },
+            "id": "a76fc93d-028f-4cb9-b414-1567309e3622"
+          },
+          {
+            "name": "b_StatusCancel",
+            "comment": "สถานะยกเลิกการจอง",
+            "dataType": "BOOLEAN",
+            "default": "0",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 93.78076171875,
+              "widthComment": 113.9091796875,
+              "widthDataType": 64.8544921875,
+              "widthDefault": 60
+            },
+            "id": "6bdc9245-2630-4d03-9346-8a4b87eaf96c"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 709,
+          "top": 488,
+          "zIndex": 2,
+          "widthName": 60,
+          "widthComment": 75.5693359375
+        },
+        "visible": true,
+        "id": "4a92abaf-4f75-4e75-a0d0-0d5de94f5022"
+      },
+      {
+        "name": "tb_roomType",
+        "comment": "ตารางประเภทห้อง",
+        "columns": [
+          {
+            "name": "rt_Id",
+            "comment": "รหัสประเภทห้อง",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 88.328125,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "34e4483c-ac03-420b-aeeb-8be3f082dbd0"
+          },
+          {
+            "name": "rt_Name",
+            "comment": "ชื่อประเภทห้อง",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 82.02490234375,
+              "widthDataType": 64.6005859375,
+              "widthDefault": 60
+            },
+            "id": "e4316ac8-990f-463e-855e-8aa06ebfb7ff"
+          },
+          {
+            "name": "rt_DateTimeUpdate",
+            "comment": "วันเวลาอัพเดทข้อมูล",
+            "dataType": "DATETIME",
+            "default": "CURRENT_TIMESTAMP",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 114.95654296875,
+              "widthComment": 111.255859375,
+              "widthDataType": 66.7587890625,
+              "widthDefault": 147.6533203125
+            },
+            "id": "52151b5f-20a5-4068-9809-d127275f3b56"
+          },
+          {
+            "name": "rt_DateTime",
+            "comment": "วันเวลา",
+            "dataType": "DATETIME",
+            "default": "CURRENT_TIMESTAMP",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 73.03662109375,
+              "widthComment": 60,
+              "widthDataType": 66.7587890625,
+              "widthDefault": 147.6533203125
+            },
+            "id": "31d0b2c6-eb47-44f7-ba89-978cee936c17"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 52,
+          "top": 837,
+          "zIndex": 1,
+          "widthName": 77.87353515625,
+          "widthComment": 98.71923828125
+        },
+        "visible": true,
+        "id": "ef9386c6-a9cc-4455-8790-97c2cfdcdfbe"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": []
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "a5679b57-9d26-4544-9e76-a34b4fd81e9e",
+          "columnIds": [
+            "3af8594a-1699-47db-8b5f-6e3d7bfce8e5"
+          ],
+          "x": 324.44384765625,
+          "y": 434.5,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "ab655e91-e41e-4d72-bb1f-e83339df4203",
+          "columnIds": [
+            "d763f950-f615-4bdf-b7c8-178788eeb7c5"
+          ],
+          "x": 325.37841796875,
+          "y": 509,
+          "direction": "top"
+        },
+        "constraintName": "fk_tb_building_to_tb_room",
+        "visible": true,
+        "id": "d517f708-d89d-4f1e-8478-f63893f331d7"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "f4cc9936-2764-4db3-af69-91ffa4ef3da6",
+          "columnIds": [
+            "fb322fc5-6831-452a-932a-5455669e1c96"
+          ],
+          "x": 1279.7573,
+          "y": 241.5,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "17b9abe9-9c4e-4543-be04-53aec30f3d04",
+          "columnIds": [
+            "b4eb7bb4-c7e8-4739-82fc-4bca2da58bc0"
+          ],
+          "x": 1172.91357421875,
+          "y": 242,
+          "direction": "right"
+        },
+        "constraintName": "fk_tb_userrole_to_tb_user",
+        "visible": true,
+        "id": "510fc0c2-2705-44bc-bbb2-6db7678b194c"
+      },
+      {
+        "identification": false,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "ab655e91-e41e-4d72-bb1f-e83339df4203",
+          "columnIds": [
+            "372076db-7089-4b2b-a033-460a9c9e4b24"
+          ],
+          "x": 601.7568359375,
+          "y": 635.75,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "4a92abaf-4f75-4e75-a0d0-0d5de94f5022",
+          "columnIds": [
+            "34f9a86e-018b-43d0-b3ec-f883a4ea4cc1"
+          ],
+          "x": 709,
+          "y": 625,
+          "direction": "left"
+        },
+        "constraintName": "fk_tb_room_to_tb_book",
+        "visible": true,
+        "id": "955d1f96-d630-447d-b344-4d37c6394035"
+      },
+      {
+        "identification": false,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "17b9abe9-9c4e-4543-be04-53aec30f3d04",
+          "columnIds": [
+            "4c8d43bc-593d-4156-a4c3-6dacfb0c9b92"
+          ],
+          "x": 899.456787109375,
+          "y": 379,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "4a92abaf-4f75-4e75-a0d0-0d5de94f5022",
+          "columnIds": [
+            "3ce4fb71-00dc-4845-b911-ffd22dc5f1b2"
+          ],
+          "x": 979.32421875,
+          "y": 488,
+          "direction": "top"
+        },
+        "constraintName": "fk_tb_user_to_tb_book",
+        "visible": true,
+        "id": "4d7a7341-1978-4ce9-a289-5d0f4bd2dc13"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "ef9386c6-a9cc-4455-8790-97c2cfdcdfbe",
+          "columnIds": [
+            "34e4483c-ac03-420b-aeeb-8be3f082dbd0"
+          ],
+          "x": 325.812255859375,
+          "y": 837,
+          "direction": "top"
+        },
+        "end": {
+          "tableId": "ab655e91-e41e-4d72-bb1f-e83339df4203",
+          "columnIds": [
+            "bc4d4ff2-7bbb-4673-99a6-ae24c3276b53"
+          ],
+          "x": 325.37841796875,
+          "y": 762.5,
+          "direction": "bottom"
+        },
+        "constraintName": "fk_tb_roomtype_to_tb_room",
+        "visible": true,
+        "id": "b28266ea-2544-4dc4-9ad3-c739e0080c56"
+      }
+    ]
+  }
+}
