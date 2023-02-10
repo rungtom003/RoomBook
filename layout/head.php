@@ -6,9 +6,15 @@
     </div>
     <ul class="sidebar-menu p-3 m-0 mb-0">
         <li class="sidebar-menu-item <?= isset($active_home) ? $active_home : "" ?>">
-            <a href="#">
+            <a href="/RoomBook/index.php">
                 <i class="ri-file-user-line sidebar-menu-item-icon"></i>
                 หน้าเเรก
+            </a>
+        </li>
+        <li class="sidebar-menu-item <?= isset($active_personal) ? $active_personal : "" ?>">
+            <a href="/RoomBook/personal.php">
+                <i class="ri-file-user-line sidebar-menu-item-icon"></i>
+                ข้อมูลส่วนตัว
             </a>
         </li>
     </ul>
