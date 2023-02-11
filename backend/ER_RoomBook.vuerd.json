@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -95,
-    "scrollLeft": -101,
+    "scrollTop": -162,
+    "scrollLeft": -78,
     "zoomLevel": 0.9,
     "show": {
       "tableComment": true,
@@ -350,7 +350,7 @@
           "active": false,
           "left": 43,
           "top": 99,
-          "zIndex": 18,
+          "zIndex": 3,
           "widthName": 64.88623046875,
           "widthComment": 68.50439453125
         },
@@ -452,6 +452,29 @@
               "widthDefault": 60
             },
             "id": "73b75e50-6c8e-44b1-9109-1b94cb5ff688"
+          },
+          {
+            "name": "r_Floor",
+            "comment": "ชั้นที่",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "dc3b3f53-6217-4730-8914-32a49579dffa"
           },
           {
             "name": "r_NumSeat",
@@ -570,10 +593,10 @@
           }
         ],
         "ui": {
-          "active": false,
+          "active": true,
           "left": 49,
           "top": 509,
-          "zIndex": 16,
+          "zIndex": 15,
           "widthName": 60,
           "widthComment": 60
         },
@@ -819,7 +842,7 @@
           "active": false,
           "left": 626,
           "top": 105,
-          "zIndex": 38,
+          "zIndex": 5,
           "widthName": 60,
           "widthComment": 63.4833984375
         },
@@ -927,7 +950,7 @@
           "active": false,
           "left": 1279.7573,
           "top": 166,
-          "zIndex": 20,
+          "zIndex": 4,
           "widthName": 72.09716796875,
           "widthComment": 87.71240234375
         },
@@ -1173,7 +1196,7 @@
           "active": false,
           "left": 709,
           "top": 488,
-          "zIndex": 52,
+          "zIndex": 6,
           "widthName": 60,
           "widthComment": 75.5693359375
         },
@@ -1281,7 +1304,7 @@
           "active": false,
           "left": 52,
           "top": 837,
-          "zIndex": 13,
+          "zIndex": 1,
           "widthName": 77.87353515625,
           "widthComment": 98.71923828125
         },
@@ -1358,7 +1381,7 @@
             "372076db-7089-4b2b-a033-460a9c9e4b24"
           ],
           "x": 601.7568359375,
-          "y": 635.75,
+          "y": 646,
           "direction": "right"
         },
         "end": {
@@ -1419,7 +1442,7 @@
             "bc4d4ff2-7bbb-4673-99a6-ae24c3276b53"
           ],
           "x": 325.37841796875,
-          "y": 762.5,
+          "y": 783,
           "direction": "bottom"
         },
         "constraintName": "fk_tb_roomtype_to_tb_room",

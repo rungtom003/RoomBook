@@ -3,6 +3,8 @@
 <script src="./src/assets/fullcalendar-6.1.4/packages/core/locales-all.global.min.js"></script>
 <script src="../src/assets/sweetalert2-11.7.0/sweetalert2.min.js"></script>
 <script src="../src/assets/jquery-3.6.3/jquery-3.6.3.min.js"></script>
+<script src="../src/assets/daterangepicker/moment.min.js"></script>
+<script src="../src/assets/daterangepicker/daterangepicker.js"></script>
 <script src="../src/assets/viewerjs/js/viewer.js"></script>
 <script src="../src/assets/DataTables/datatables.min.js"></script>
 <script src="../src/assets/masonry/masonry.min.js"></script>
