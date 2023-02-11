@@ -7,8 +7,26 @@
     <ul class="sidebar-menu p-3 m-0 mb-0">
         <li class="sidebar-menu-item <?= isset($active_home) ? $active_home : "" ?>">
             <a href="/RoomBook/index.php">
-                <i class="ri-file-user-line sidebar-menu-item-icon"></i>
+                <i class="ri-home-4-line sidebar-menu-item-icon"></i>
                 หน้าเเรก
+            </a>
+        </li>
+        <li class="sidebar-menu-item <?= isset($active_book) ? $active_book : "" ?>">
+            <a href="/RoomBook/book.php">
+                <i class="ri-draft-line sidebar-menu-item-icon"></i>
+                จองห้อง
+            </a>
+        </li>
+        <li class="sidebar-menu-item <?= isset($active_calendar_book) ? $active_calendar_book : "" ?>">
+            <a href="/RoomBook/calendar_book.php">
+                <i class="ri-calendar-todo-line sidebar-menu-item-icon"></i>
+                ปฏิทินการจอง
+            </a>
+        </li>
+        <li class="sidebar-menu-item <?= isset($active_tableroom) ? $active_tableroom : "" ?>">
+            <a href="/RoomBook/table_room.php">
+                <i class="ri-table-line sidebar-menu-item-icon"></i>
+                ตารางห้อง
             </a>
         </li>
         <li class="sidebar-menu-item <?= isset($active_personal) ? $active_personal : "" ?>">
