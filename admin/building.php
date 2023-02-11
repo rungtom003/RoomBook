@@ -223,7 +223,7 @@ $active_building = "active";
                                 const bd_Name = row.bd_Name;
                                 let txtBtn = `<div class="d-grid gap-2 d-md-block" >
                                         <button class="btn btn-warning" type="button" onclick="modal_Edit(this)" value="${bd_id}" id="btn_Edit" >แก้ไข</button>
-                                        <button class="btn btn-danger" type="button" onclick="building_Delete(this)" value="${bd_id}" id="btn_Delete" >ลบ</button>
+                                        <button class="btn btn-danger" type="button" onclick="building_Delete(this)" value='${JSON.stringify(row)}' id="btn_Delete" >ลบ</button>
                                     </div>
                                     <div class="d-grid gap-2 d-md-block">
                                         <button class="btn btn-success" type="button" id="btn_Update" style='display: none' >ยืนยัน</button>
@@ -433,10 +433,13 @@ $active_building = "active";
         }
 
         const building_Delete = (elm) => {
-            let bd_id = elm.value;
+            let obj = JSON.parse(elm.value);
+            let bd_id = obj.bd_id;
+            let bd_Name = obj.bd_Name;
+
             Swal.fire({
                 title: 'แจ้งเตือน',
-                text: `ต้องการลบข้อมูลใช่หรือไม่`,
+                text: `ต้องการลบข้อมูล ${bd_Name} ใช่หรือไม่`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
