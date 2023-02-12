@@ -29,7 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $b_EndDateTime = $_POST["b_EndDateTime"];
         $b_Note = $_POST["b_Note"];
 
-        $sql = "INSERT INTO `room_book`.`tb_Book` (`b_Id`, `u_Id`, `r_Id`, `b_Head`, `b_NumParticipant`, `b_StartDateTime`, `b_EndDateTime`, `b_Note`) VALUES ('".$b_Id."', '".$u_Id."', '".$r_Id."', '".$b_Head."', '".$b_NumParticipant."', '".$b_StartDateTime."', '".$b_StartDateTime."', '".$b_Note."');";
+        $sql = "INSERT INTO `room_book`.`tb_Book` (`b_Id`, `u_Id`, `r_Id`, `b_Head`, `b_NumParticipant`, `b_StartDateTime`, `b_EndDateTime`, `b_Note`) VALUES ('".$b_Id."', '".$u_Id."', '".$r_Id."', '".$b_Head."', '".$b_NumParticipant."', '".$b_StartDateTime."', '".$b_EndDateTime."', '".$b_Note."');";
+
+        $sql_check = "";
 
         if ($conn->query($sql) === TRUE) {
             $resp->set_message("บันทึกข้อมูลสำเร็จ");
