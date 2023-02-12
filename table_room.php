@@ -4,8 +4,8 @@
     // if($user == null){
     //     header('location: /ReserveSpace/login.php');
     // }
-    $titleHead = "ข้อมูลส่วนตัว";
-    $active_personal = "active";
+    $titleHead = "ตารางห้อง";
+    $active_tableroom = "active";
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,7 +32,7 @@
     </main>
     <!-- end: Main -->
     <?php include("./layout/script.php"); ?>
-    <script type="text/javascript">
+    <script>
     </script>
 </body>
 
