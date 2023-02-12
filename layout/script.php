@@ -1,6 +1,7 @@
 <script src="./src/assets/bootstrap-5.3.0/js/bootstrap.bundle.min.js"></script>
 <script src="./src/assets/fullcalendar-6.1.4/dist/index.global.min.js"></script>
 <script src="./src/assets/fullcalendar-6.1.4/packages/core/locales-all.global.min.js"></script>
+<script src="./src/assets/fullcalendar-6.1.4/packages/bootstrap5/index.global.js"></script>
 <script src="./src/assets/sweetalert2-11.7.0/sweetalert2.min.js"></script>
 <script src="./src/assets/jquery-3.6.3/jquery-3.6.3.min.js"></script>
 <script src="./src/assets/daterangepicker/moment.min.js"></script>
