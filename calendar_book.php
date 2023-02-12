@@ -45,21 +45,18 @@ $active_calendar_book = "active";
                 //height: '100%',
                 themeSystem: 'bootstrap5',
                 expandRows: true,
-                // slotMinTime: '00:00',
-                // slotMaxTime: '23:00',
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
                 },
                 initialView: 'dayGridMonth',
-                initialDate: '2023-01-12',
                 navLinks: true, // can click day/week names to navigate views
                 editable: false,
                 selectable: true,
                 nowIndicator: true,
-                dayMaxEvents: true, // allow "more" link when too many events
-                events: 'https://fullcalendar.io/api/demo-feeds/events.json'
+                dayMaxEvents: true,
+                events: '/RoomBook/backend/service/api_book_carendar.php'
             });
             calendar.render();
         });
