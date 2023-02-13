@@ -34,7 +34,6 @@ $active_building = "active";
                     </div>
                 </div>
             </div>
-            <!-- end: Content -->
 
             <div class="modal fade" id="buildingModal" tabindex="-1" aria-labelledby="buildingModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
@@ -51,6 +50,7 @@ $active_building = "active";
                                 </div> -->
                                 <div class="row g-2 p-2">
                                     <div class="col-md">
+                                        <span id="bd_id" hidden></span>
                                         <label class="form-label">ชื่ออาคาร</label>
                                         <input type="text" class="form-control" placeholder="Name" id="bd_Name" required>
                                         <!-- <div class="form-text">Enter your Full name</div> -->
@@ -140,7 +140,8 @@ $active_building = "active";
                     </div>
                 </div>
             </div>
-
+            
+            <!-- end: Content -->
         </div>
     </main>
     <!-- end: Main -->
@@ -301,7 +302,8 @@ $active_building = "active";
                     $('#bd_Subdistrict').val(res.data.bd_Subdistrict).attr("placeholder", "Subdistrict").prop("readonly", false);
                     $('#bd_District').val(res.data.bd_District).attr("placeholder", "District").prop("readonly", false);
                     $('#bd_Province').val(res.data.bd_Province).attr("placeholder", "Province").prop("readonly", false);
-                    $('#btnSave').val(res.data.bd_id).show();
+                    $('#bd_id').val(res.data.bd_id);
+                    $('#btnSave').show();
                 }
             });
 
@@ -370,7 +372,7 @@ $active_building = "active";
         }
 
         const building_Update = () => {
-            let bd_id = $('#btnSave').val();
+            let bd_id = $('#bd_id').val();
             let bd_Name = $('#bd_Name').val()
             let bd_Floor = $('#bd_Floor').val()
             let bd_NumRoom = $('#bd_NumRoom').val()

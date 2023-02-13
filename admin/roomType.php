@@ -43,23 +43,27 @@ $active_roomType = "active";
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <div class="mb-3">
-                                    <label for="inputAddRt_Id" class="col-form-label">รหัสประเภท :</label>
-                                    <input class="form-control" id="inputAddRt_Id" required></input>
-                                    <div class="invalid-feedback">
-                                        กรุณากรอก รหัสประเภท
+                                <div class="row g-2 p-2">
+                                    <div class="col-md">
+                                        <label for="inputAddRt_Id" class="col-form-label">รหัสประเภท</label>
+                                        <input class="form-control" id="inputAddRt_Id" required></input>
+                                        <div class="invalid-feedback">
+                                            กรุณากรอก รหัสประเภท
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="inputAddRt_Name" class="col-form-label">ชื่อประเภท :</label>
-                                    <input class="form-control" id="inputAddRt_Name" required></input>
-                                    <div class="invalid-feedback">
-                                        กรุณากรอก ชื่อประเภท
+                                <div class="row g-2 p-2">
+                                    <div class="col-md">
+                                        <label for="inputAddRt_Name" class="col-form-label">ชื่อประเภท</label>
+                                        <input class="form-control" id="inputAddRt_Name" required></input>
+                                        <div class="invalid-feedback">
+                                            กรุณากรอก ชื่อประเภท
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary" onclick="" id="btn_Add">บันทึก</button>
+                                <div class="row g-2 p-2">
+                                    <button type="submit" class="btn btn-primary" onclick="" id="btn_Add">บันทึก</button>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -347,6 +351,7 @@ $active_roomType = "active";
 
             }
         });
+        
     </script>
 </body>
 
