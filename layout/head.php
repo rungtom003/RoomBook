@@ -29,6 +29,12 @@
                 ตารางห้อง
             </a>
         </li>
+        <li class="sidebar-menu-item <?= isset($active_tablebook) ? $active_tablebook : "" ?>">
+            <a href="/RoomBook/table_book.php">
+                <i class="ri-table-line sidebar-menu-item-icon"></i>
+                ตารางจองห้อง
+            </a>
+        </li>
         <li class="sidebar-menu-item <?= isset($active_personal) ? $active_personal : "" ?>">
             <a href="/RoomBook/personal.php">
                 <i class="ri-file-user-line sidebar-menu-item-icon"></i>
