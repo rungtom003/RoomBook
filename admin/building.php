@@ -34,7 +34,6 @@ $active_building = "active";
                     </div>
                 </div>
             </div>
-            <!-- end: Content -->
 
             <div class="modal fade" id="buildingModal" tabindex="-1" aria-labelledby="buildingModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
@@ -51,6 +50,7 @@ $active_building = "active";
                                 </div> -->
                                 <div class="row g-2 p-2">
                                     <div class="col-md">
+                                        <span id="bd_id" hidden></span>
                                         <label class="form-label">ชื่ออาคาร</label>
                                         <input type="text" class="form-control" placeholder="Name" id="bd_Name" required>
                                         <!-- <div class="form-text">Enter your Full name</div> -->
@@ -140,7 +140,8 @@ $active_building = "active";
                     </div>
                 </div>
             </div>
-
+            
+            <!-- end: Content -->
         </div>
     </main>
     <!-- end: Main -->
@@ -158,7 +159,7 @@ $active_building = "active";
                     if ($('#buildingModalLabel').html() === "เพิ่มอาคาร") {
                         building_Add();
                     } else if ($('#buildingModalLabel').html() === "แก้ไขข้อมูล") {
-                        building_Edit();
+                        building_Update();
                     }
                 }
                 form.classList.add('was-validated');
@@ -222,7 +223,7 @@ $active_building = "active";
                                 const bd_id = row.bd_id;
                                 const bd_Name = row.bd_Name;
                                 let txtBtn = `<div class="d-grid gap-2 d-md-block" >
-                                        <button class="btn btn-warning" type="button" onclick="modal_Edit(this)" value="${bd_id}" id="btn_Edit" >แก้ไข</button>
+                                        <button class="btn btn-warning" type="button" onclick="modal_Update(this)" value="${bd_id}" id="btn_Edit" >แก้ไข</button>
                                         <button class="btn btn-danger" type="button" onclick="building_Delete(this)" value='${JSON.stringify(row)}' id="btn_Delete" >ลบ</button>
                                     </div>
                                     <div class="d-grid gap-2 d-md-block">
@@ -280,7 +281,7 @@ $active_building = "active";
             $('#buildingModal').modal('show');
         }
 
-        const modal_Edit = (elm) => {
+        const modal_Update = (elm) => {
             let bd_id = elm.value;
             $('#buildingModalLabel').html("แก้ไขข้อมูล");
             $.ajax({
@@ -301,7 +302,8 @@ $active_building = "active";
                     $('#bd_Subdistrict').val(res.data.bd_Subdistrict).attr("placeholder", "Subdistrict").prop("readonly", false);
                     $('#bd_District').val(res.data.bd_District).attr("placeholder", "District").prop("readonly", false);
                     $('#bd_Province').val(res.data.bd_Province).attr("placeholder", "Province").prop("readonly", false);
-                    $('#btnSave').val(res.data.bd_id).show();
+                    $('#bd_id').val(res.data.bd_id);
+                    $('#btnSave').show();
                 }
             });
 
@@ -369,8 +371,8 @@ $active_building = "active";
 
         }
 
-        const building_Edit = () => {
-            let bd_id = $('#btnSave').val();
+        const building_Update = () => {
+            let bd_id = $('#bd_id').val();
             let bd_Name = $('#bd_Name').val()
             let bd_Floor = $('#bd_Floor').val()
             let bd_NumRoom = $('#bd_NumRoom').val()
@@ -394,7 +396,7 @@ $active_building = "active";
             formData.append("bd_Province", bd_Province);
 
             $.ajax({
-                url: "/RoomBook/backend/service/api_BuildingEdit.php",
+                url: "/RoomBook/backend/service/api_BuildingUpdate.php",
                 type: "POST",
                 data: formData,
                 contentType: false,
@@ -483,8 +485,8 @@ $active_building = "active";
 
                 }
             })
-
         }
+        
     </script>
 </body>
 

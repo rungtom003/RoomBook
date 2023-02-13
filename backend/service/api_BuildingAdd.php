@@ -34,9 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $sql .= " '" . $bd_Road . "', '" . $bd_Subdistrict . "', '" . $bd_District . "', '" . $bd_Province . "' );";
 
         $sqlCheck = "SELECT * FROM room_book.tb_building where bd_Name = '" . $bd_Name . "';";
-        $resul = $conn->query($sqlCheck);
+        $result = $conn->query($sqlCheck);
 
-        if ($resul->num_rows > 0) {
+        if ($result->num_rows > 0) {
             $resp->set_message("ชื่ออาคารซ้ำ");
             $resp->set_status("Duplicate");
         } else {
