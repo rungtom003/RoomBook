@@ -1,32 +1,33 @@
 <?php
 include "../class/resp.php";
-include "connectdb.php";
+include "../config/connectiondb.php";
 
 $resp = new Resp();
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($connect_status == "success") {
 
-        $a_Id = $_POST["a_Id"];
-        $a_Name = $_POST["a_Name"];
+        date_default_timezone_set("asia/bangkok");
+        $rt_DateTimeUpdate = date("Y-m-d h:i:s");
+        $rt_Id = $_POST["rt_Id"];
+        $rt_Name = $_POST["rt_Name"];
 
-        $sql = "UPDATE `reserve_space`.`tb_area` SET `a_Name` = '" . $a_Name . "' ";
-        $sql .= "WHERE `a_Id` = '" . $a_Id . "';";
+        $sql = "UPDATE `room_book`.`tb_roomType` SET `rt_Name` = '" . $rt_Name . "', `rt_DateTimeUpdate` = '".$rt_DateTimeUpdate."' ";
+        $sql .= "WHERE `rt_Id` = '" . $rt_Id . "';";
 
-        if ($conn->query($sql) === TRUE) {
-            $resp->set_message("บันทึกข้อมูลสำเร็จ");
-            $resp->set_status("success");
+        $sqlCheckName = "SELECT * FROM room_book.tb_roomType where rt_Name = '" . $rt_Name . "';";
+        $resultName = $conn->query($sqlCheckName);
 
-            // $sqlSelect = "SELECT * FROM reserve_space.tb_user where `u_Username` = '" . $u_Username . "' and `u_CardNumber` = '" . $u_CardNumber . "' ;";
-            // $result = $conn->query($sqlSelect);
-            // if ($result->num_rows > 0) {
-            //     $row = $result->fetch_assoc();
-            //     $resp->data = $row;
-            //     $_SESSION["user"] = serialize($row);
-            // }
-
+        if ($resultName->num_rows > 0) {
+            $resp->set_message("ชื่อประเภทซ้ำ");
+            $resp->set_status("Duplicate name");
         } else {
-            $resp->set_message("ไม่สามารถบันทึกข้อมูลได้");
-            $resp->set_status("fail");
+            if ($conn->query($sql) === TRUE) {
+                $resp->set_message("แก้ไขข้อมูลสำเร็จ");
+                $resp->set_status("success");
+            } else {
+                $resp->set_message("ไม่สามารถแก้ไขข้อมูลได้");
+                $resp->set_status("fail");
+            }
         }
     } else {
         $resp->set_message("connection database fail.");

@@ -1,14 +1,14 @@
 <?php
 include "../class/resp.php";
-include "connectdb.php";
+include "../config/connectiondb.php";
 
 $resp = new Resp();
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($connect_status == "success") {
 
-        $a_Id = $_POST["a_Id"];
+        $rt_Id = $_POST["rt_Id"];
 
-        $sql = "DELETE FROM `reserve_space`.`tb_area` WHERE `a_Id` = '".$a_Id."'; ";
+        $sql = "DELETE FROM `room_book`.`tb_roomType` WHERE `rt_Id` = '".$rt_Id."'; ";
 
         if ($conn->query($sql) === TRUE) {
             $resp->set_message("ลบข้อมูลสำเร็จ");

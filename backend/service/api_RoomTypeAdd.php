@@ -1,36 +1,35 @@
 <?php
 include "../class/resp.php";
-include "connectdb.php";
-
-
+include "../config/connectiondb.php";
 
 $resp = new Resp();
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($connect_status == "success") {
 
-        $z_Id = $_POST["z_Id"];
-        $a_Name = $_POST["a_Name"];
+        $rt_Id = $_POST["rt_Id"];
+        $rt_Name = $_POST["rt_Name"];
 
-        // for($i = 0; $i <= 42; $i++){
-        //     $name = $a_Name.$i;
-        //     $sql = "INSERT INTO `reserve_space`.`tb_area` (`z_Id`,`a_Name` ) VALUES ('".$z_Id."', '" . $name . "');";
-        //     if ($conn->query($sql) === TRUE) {
-        //         $resp->set_message("บันทึกข้อมูลสำเร็จ > ".$i);
-        //         $resp->set_status("success");
-        //     } else {
-        //         $resp->set_message("ไม่สามารถบันทึกข้อมูลได้");
-        //         $resp->set_status("fail");
-        //     }
-        // }
+        $sql = "INSERT INTO `room_book`.`tb_roomType` (`rt_Id`,`rt_Name` ) VALUES ('" . $rt_Id . "', '" . $rt_Name . "');";
 
-        $sql = "INSERT INTO `reserve_space`.`tb_area` (`z_Id`,`a_Name` ) VALUES ('" . $z_Id . "', '" . $a_Name . "');";
+        $sqlCheckID = "SELECT * FROM room_book.tb_roomType where rt_Id = '" . $rt_Id . "';";
+        $sqlCheckName = "SELECT * FROM room_book.tb_roomType where rt_Name = '" . $rt_Name . "';";
+        $resultID = $conn->query($sqlCheckID);
+        $resultName = $conn->query($sqlCheckName);
 
-        if ($conn->query($sql) === TRUE) {
-            $resp->set_message("บันทึกข้อมูลสำเร็จ");
-            $resp->set_status("success");
+        if ($resultID->num_rows > 0) {
+            $resp->set_message("รหัสประเภทซ้ำ");
+            $resp->set_status("Duplicate ID");
+        } else if ($resultName->num_rows > 0) {
+            $resp->set_message("ชื่อประเภทซ้ำ");
+            $resp->set_status("Duplicate name");
         } else {
-            $resp->set_message("ไม่สามารถบันทึกข้อมูลได้");
-            $resp->set_status("fail");
+            if ($conn->query($sql) === TRUE) {
+                $resp->set_message("บันทึกข้อมูลสำเร็จ");
+                $resp->set_status("success");
+            } else {
+                $resp->set_message("ไม่สามารถบันทึกข้อมูลได้");
+                $resp->set_status("fail");
+            }
         }
     } else {
         $resp->set_message("connection database fail.");

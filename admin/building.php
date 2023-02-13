@@ -483,8 +483,8 @@ $active_building = "active";
 
                 }
             })
-
         }
+        
     </script>
 </body>
 
