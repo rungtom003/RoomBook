@@ -158,7 +158,7 @@ $active_building = "active";
                     if ($('#buildingModalLabel').html() === "เพิ่มอาคาร") {
                         building_Add();
                     } else if ($('#buildingModalLabel').html() === "แก้ไขข้อมูล") {
-                        building_Edit();
+                        building_Update();
                     }
                 }
                 form.classList.add('was-validated');
@@ -222,7 +222,7 @@ $active_building = "active";
                                 const bd_id = row.bd_id;
                                 const bd_Name = row.bd_Name;
                                 let txtBtn = `<div class="d-grid gap-2 d-md-block" >
-                                        <button class="btn btn-warning" type="button" onclick="modal_Edit(this)" value="${bd_id}" id="btn_Edit" >แก้ไข</button>
+                                        <button class="btn btn-warning" type="button" onclick="modal_Update(this)" value="${bd_id}" id="btn_Edit" >แก้ไข</button>
                                         <button class="btn btn-danger" type="button" onclick="building_Delete(this)" value='${JSON.stringify(row)}' id="btn_Delete" >ลบ</button>
                                     </div>
                                     <div class="d-grid gap-2 d-md-block">
@@ -280,7 +280,7 @@ $active_building = "active";
             $('#buildingModal').modal('show');
         }
 
-        const modal_Edit = (elm) => {
+        const modal_Update = (elm) => {
             let bd_id = elm.value;
             $('#buildingModalLabel').html("แก้ไขข้อมูล");
             $.ajax({
@@ -369,7 +369,7 @@ $active_building = "active";
 
         }
 
-        const building_Edit = () => {
+        const building_Update = () => {
             let bd_id = $('#btnSave').val();
             let bd_Name = $('#bd_Name').val()
             let bd_Floor = $('#bd_Floor').val()
@@ -394,7 +394,7 @@ $active_building = "active";
             formData.append("bd_Province", bd_Province);
 
             $.ajax({
-                url: "/RoomBook/backend/service/api_BuildingEdit.php",
+                url: "/RoomBook/backend/service/api_BuildingUpdate.php",
                 type: "POST",
                 data: formData,
                 contentType: false,
