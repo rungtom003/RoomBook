@@ -34,7 +34,6 @@ $active_roomType = "active";
                     </div>
                 </div>
             </div>
-
             <div class="modal fade" id="addRoomTypeModal" tabindex="-1" aria-labelledby="addRoomTypeModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -70,7 +69,6 @@ $active_roomType = "active";
                     </div>
                 </div>
             </div>
-
             <!-- end: Content -->
         </div>
     </main>
