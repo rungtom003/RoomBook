@@ -1,11 +1,11 @@
 <?php
-    // session_start();
-    // $user = (isset($_SESSION['user'])) ? unserialize($_SESSION['user']) : null;
-    // if($user == null){
-    //     header('location: /ReserveSpace/login.php');
-    // }
-    $titleHead = "ข้อมูลส่วนตัว";
-    $active_personal = "active";
+// session_start();
+// $user = (isset($_SESSION['user'])) ? unserialize($_SESSION['user']) : null;
+// if($user == null){
+//     header('location: /ReserveSpace/login.php');
+// }
+$titleHead = "ข้อมูลส่วนตัว";
+$active_personal = "active";
 ?>
 <!doctype html>
 <html lang="en">
@@ -13,18 +13,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?=$titleHead?></title>
+    <title><?= $titleHead ?></title>
     <?php include("./layout/css.php"); ?>
 </head>
 
 <body style="font-family: kanit-Regular;">
     <?php include("./layout/head.php"); ?>
-        <!-- start: Main -->
-        <main class="bg-light">
+    <!-- start: Main -->
+    <main class="bg-light">
         <div class="p-2">
-        <?php include("./layout/navmain.php"); ?>
+            <?php include("./layout/navmain.php"); ?>
             <!-- start: Content -->
             <div class="py-1" style="font-family: kanit-Regular;">
+                <div class="card">
+                    <div class="card-header">
+                        Quote
+                    </div>
+                    <div class="card-body">
+                       
+                    </div>
+                </div>
 
             </div>
             <!-- end: Content -->
