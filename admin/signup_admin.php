@@ -31,27 +31,27 @@ $signup_admin = "active";
                             สมัครสมาชิก
                             </div>
                             <div class="card-body">
-                                <form class="row">
-                                    <div class="col-lg-12">
-                                        <div class="col">
+                                <form>
+                                    <div class="row col-lg-12">
+                                        <div class="col-lg-6">
                                             <label for="u_FirstName" class="form-label">ชื่อ</label>
                                             <input type="text" class="form-control" placeholder="FirstName" id="u_FirstName" >
                                             <div id="emailHelp" class="form-text">We'll </div>
                                         </div>
-                                        <div class="col">
+                                        <div class="col-lg-6">
                                             <label for="u_LastName" class="form-label">นามสกุล</label>
                                             <input type="text" class="form-control" placeholder="LastName" id="u_LastName">
                                             <div id="emailHelp" class="form-text">We'll </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12">
-                                        <div class="col">
+                                    <div class="row col-lg-12">
+                                        <div class="col-lg-6">
                                             <label for="u_Faculty" class="form-label">คณะ</label>
                                             <input type="text" class="form-control" placeholder="Faculty" id="u_Faculty" >
                                             <div id="emailHelp" class="form-text">We'll </div>
                                         </div>
-                                        <div class="col">
+                                        <div class="col-lg-6">
                                             <label for="u_Position" class="form-label">ตำแหน่ง</label>
                                             <input type="text" class="form-control" placeholder="Position" id="u_Position">
                                             <div id="emailHelp" class="form-text">We'll </div>
