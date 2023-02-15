@@ -24,6 +24,7 @@ $active_personal = "active";
         <div class="p-2">
             <?php include("./layout/navmain.php"); ?>
             <!-- start: Content -->
+
             <div class="py-5" style="font-family: kanit-Regular;">
             <div class="d-flex justify-content-center">
                         <div class="card col-lg-6">
@@ -44,6 +45,7 @@ $active_personal = "active";
                                             <div id="emailHelp" class="form-text">We'll </div>
                                         </div>
                                     </div>
+
 
                                     <div class="row g-2 p-2">
                                         <div class="col-md">
