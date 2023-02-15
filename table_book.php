@@ -4,8 +4,8 @@
 // if($user == null){
 //     header('location: /ReserveSpace/login.php');
 // }
-$titleHead = "ตารางห้อง";
-$active_tableroom = "active";
+$titleHead = "ตารางจองห้อง";
+$active_tablebook = "active";
 ?>
 <!doctype html>
 <html lang="en">
@@ -38,58 +38,70 @@ $active_tableroom = "active";
     <?php include("./layout/script.php"); ?>
     <script type="text/javascript">
         $('#table-room').DataTable({
-            ajax: '/RoomBook/backend/service/api_detail_room_list.php',
+            ajax: '/RoomBook/backend/service/api_detail_book_list.php',
             dom: 'Bfrtip',
             buttons: ['copy', 'csv', 'excel', 'colvis'],
             responsive: true,
             language: {
                 url: './src/assets/DataTables/LanguageTable/th.json'
             },
-            columnDefs: [{
-                    targets: 0,
-                    title: "ชื่ออาคาร/ตึก",
-                    data: "bd_Name",
-                },
+            columnDefs: [
                 {
-                    targets: 1,
+                    targets: 0,
                     title: "ชื่อห้อง",
                     data: "r_Name",
                 },
                 {
-                    targets: 2,
+                    targets: 1,
                     title: "ประเภทห้อง",
                     data: "rt_Name",
                 },
                 {
-                    targets: 3,
+                    targets: 2,
                     title: "ชั้น",
                     data: "r_Floor",
                 },
                 {
+                    targets: 3,
+                    title: "ชื่อ",
+                    data: "u_FirstName",
+                },
+                {
                     targets: 4,
-                    title: "ที่อยู่",
-                    data: "bd_Address",
+                    title: "สกุล",
+                    data: "u_LastName",
                 },
                 {
                     targets: 5,
-                    title: "ถนน",
-                    data: "bd_Road",
+                    title: "ตำแหน่ง",
+                    data: "u_Position",
                 },
                 {
                     targets: 6,
-                    title: "ตำบล",
-                    data: "bd_Subdistrict",
+                    title: "คณะ",
+                    data: "u_Faculty",
                 },
                 {
                     targets: 7,
-                    title: "อำเภอ",
-                    data: "bd_District",
+                    title: "หัวข้อ",
+                    data: "b_Head",
                 },
                 {
                     targets: 8,
-                    title: "จังหวัด",
-                    data: "bd_Province",
+                    title: "ประเภทการใช้ห้อง",
+                    data: "ut_Name",
                 },
+                {
+                    targets: 9,
+                    title: "เวลาเริ่ม",
+                    data: "b_StartDateTime",
+                },
+                {
+                    targets: 10,
+                    title: "เวลาสิ้นสุด",
+                    data: "b_EndDateTime",
+                },
+                
             ]
         });
     </script>

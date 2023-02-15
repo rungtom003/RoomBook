@@ -155,7 +155,16 @@ $active_book = "active";
                             </div>
                         </div>
                         <div class="form-floating my-1">
-                            <input type="number" min="1" class="form-control" id="b_NumParticipant" placeholder="จำนวนผู้ใช้ห้อง" required>
+                            <select class="form-select" aria-label="ประเภทการใช้ห้อง" id="select-usetype" required>
+                                <option value="" selected disabled>เลือกประเภทการใช้ห้อง</option>
+                            </select>
+                            <label for="select-usetype">ประเภทการใช้ห้อง</label>
+                            <div class="invalid-feedback">
+                                กรุณาเลือกประเภทการใช้ห้อง
+                            </div>
+                        </div>
+                        <div class="form-floating my-1">
+                            <input type="number" min="1" class="form-control" id="b_NumParticipant" placeholder="จำนวนผู้ใช้ห้อง">
                             <label for="b_NumParticipant">จำนวนผู้ใช้ห้อง</label>
                             <div class="invalid-feedback">
                                 กรุณากรอกจำนวนผู้ใช้ห้อง
@@ -197,6 +206,7 @@ $active_book = "active";
                 let buildingOption = `<option selected disabled value=''>เลือกอาคาร</option>`;
                 let floorOption = `<option selected disabled value=''>เลือกชั้น</option>`;
                 let roomtypeOption = `<option selected disabled value=''>เลือกประเภทห้อง</option>`;
+                let usetypeOption = `<option selected disabled value=''>เลือกประเภทห้อง</option>`;
 
                 $.each(res.data.building, function(key, val) {
                     buildingOption += `<option value="${val.bd_id}" data-floor="${val.bd_Floor}">${val.bd_Name}</option>`;
@@ -206,9 +216,14 @@ $active_book = "active";
                     roomtypeOption += `<option value="${val.rt_Id}">${val.rt_Name}</option>`;
                 });
 
+                $.each(res.data.useType, function(key, val) {
+                    usetypeOption += `<option value="${val.ut_Id}">${val.ut_Name}</option>`;
+                });
+
                 $("#select-building").html(buildingOption);
                 $("#select-roomtype").html(roomtypeOption);
                 $("#select-floor").html(floorOption);
+                $("#select-usetype").html(usetypeOption);
             }
         });
 
@@ -316,7 +331,8 @@ $active_book = "active";
                 b_NumParticipant: $("#b_NumParticipant").val(),
                 b_StartDateTime: startDate,
                 b_EndDateTime: endDate,
-                b_Note: $("#b_Note").val()
+                b_Note: $("#b_Note").val(),
+                ut_Id:$("#select-usetype").val()
             }
             $.ajax({
                 url: '/RoomBook/backend/service/api_book_room.php',
@@ -347,16 +363,11 @@ $active_book = "active";
                             }
                         });
                     } else {
-                        Swal.fire({
-                            position: 'center',
-                            icon: 'warning',
-                            title: res.message,
-                            showConfirmButton: false,
-                            timer: 1500,
-                            willClose: () => {
-                                window.location.reload();
-                            }
-                        });
+                        Swal.fire(
+                            'เกิดข้อผิดพลาด',
+                            res.message,
+                            'warning'
+                        );
                     }
                 }
             });
