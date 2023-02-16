@@ -18,6 +18,30 @@ $resp = new Resp();
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($connect_status == "success") {
 
+<<<<<<< HEAD
+        $u_FirstName = $_POST["u_FirstName"];
+        $u_LastName = $_POST["u_LastName"];
+        $u_PasswordHash = $_POST["u_PasswordHash"];
+        $u_Phone = $_POST["u_Phone"];
+        $u_Faculty = $_POST["u_Faculty"];
+        $u_Position = $_POST["u_Position"];
+        $u_Username = $_POST['u_Username'];
+
+        $sql = "SELECT * FROM room_book.tb_user where u_Username = '" . $u_Username . "';";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            $resp->set_message("มีชื่อผู้ใช้แล้ว");
+            $resp->set_status("fail");
+        } else {
+            $u_Password_hash = hash("sha256", $u_PasswordHash);
+            $sql = "INSERT INTO `room_book`.`tb_user` (`u_Id`, `ur_Id`, `u_FirstName`, `u_LastName`, `u_Username`, `u_PasswordHash`, `u_Phone`, `u_Faculty`, `u_Position`) VALUES ('" . uniqidReal() . "', 'R001', '" . $u_FirstName . "', '" . $u_LastName . "', '" . $u_Username . "', '" . $u_Password_hash . "', '" . $u_Phone . "', '" . $u_Faculty . "', '" . $u_Position . "');";
+
+            if ($conn->query($sql) === TRUE) {
+                $resp->set_message("สมัครสมาชิกมูลสำเร็จ");
+                $resp->set_status("success");
+            } else {
+                $resp->set_message("ไม่สามารถสมัครสมาชิกได้");
+=======
         $u_Id = uniqidReal();
         $ur_Id = $_POST["ur_Id"];
         $u_FirstName = $_POST["u_FirstName"];
@@ -46,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $resp->set_status("success");
             } else {
                 $resp->set_message("ไม่สามารถบันทึกข้อมูลได้");
+>>>>>>> 44c77607ea3a48534ddc8602651a6f574a476a63
                 $resp->set_status("fail");
             }
         }

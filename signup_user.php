@@ -4,7 +4,7 @@
 // if($user == null){
 //     header('location: /ReserveSpace/login.php');
 // }
-$titleHead = "Home";
+$titleHead = "สมัครสมาชิก";
 $active_home = "active";
 ?>
 <!doctype html>
@@ -18,13 +18,13 @@ $active_home = "active";
 </head>
 <style>
     /* Import Google font - Poppins */
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+    /* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"); */
 
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
+        /* font-family: "Poppins", sans-serif; */
     }
 
     body {
@@ -167,8 +167,8 @@ $active_home = "active";
 <body style="font-family: kanit-Regular;">
     <section class="container">
         <header>User Registration Form</header>
-        <form action="#" class="form">
-        <div class="column">
+        <form class="form">
+            <div class="column">
                 <div class="input-box">
                     <label>ชื่อ</label>
                     <input type="text" placeholder="FirstName" id="u_FirstName" required />
@@ -189,7 +189,7 @@ $active_home = "active";
                     <input type="text" placeholder="Position" id="u_Position" required />
                 </div>
             </div>
-            
+
             <div class="input-box">
                 <label>Username</label>
                 <input type="text" placeholder="Username" id="u_Username" required />
@@ -197,7 +197,7 @@ $active_home = "active";
 
             <div class="input-box">
                 <label>Password</label>
-                <input type="text" placeholder="Password" id="u_PasswordHash" required />
+                <input type="password" placeholder="Password" id="u_PasswordHash" required />
             </div>
 
             <div class="input-box">
@@ -252,10 +252,49 @@ $active_home = "active";
                     <input type="number" placeholder="Enter postal code" required />
                 </div>
             </div> -->
-            <button>Submit</button>
+            <button id="btn-submit" onclick="userSignup()" type="button">Submit</button>
         </form>
-        
+
     </section>
+
+    <?php include("./layout/script.php"); ?>
+    <script type="text/javascript">
+        const userSignup = () => {
+            const data = {
+                u_FirstName: $("#u_FirstName").val(),
+                u_LastName: $("#u_LastName").val(),
+                u_Username: $("#u_Username").val(),
+                u_PasswordHash: $("#u_PasswordHash").val(),
+                u_Phone: $("#u_Phone").val(),
+                u_Faculty: $("#u_Faculty").val(),
+                u_Position: $("#u_Position").val()
+            }
+            $.ajax({
+                url: '/RoomBook/backend/service/api_userSignup.php',
+                type: 'POST',
+                dataType: 'json',
+                data: data,
+                success: function(res) {
+                    if (res.status === "success") {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'สำเร็จ',
+                            text: res.message,
+                            didClose:()=>{
+                               window.location.replace('/RoomBook/login_user.php')
+                            }
+                        })
+                    } else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'ไม่สำเร็จ',
+                            text: res.message
+                        });
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

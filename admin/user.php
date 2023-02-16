@@ -1,11 +1,16 @@
 <?php
-    // session_start();
-    // $user = (isset($_SESSION['user'])) ? unserialize($_SESSION['user']) : null;
-    // if($user == null){
-    //     header('location: /ReserveSpace/login.php');
-    // }
-    $titleHead = "สมาชิก";
-    $active_user = "active";
+session_start();
+$user = (isset($_SESSION['user'])) ? unserialize($_SESSION['user']) : null;
+if ($user == null) {
+    header('location: /RoomBook/login_user.php');
+} else {
+    if ($user['ur_Id'] != "R002") // R002 => ADMIN
+    {
+        header('location: /RoomBook/index.php');
+    }
+}
+$titleHead = "สมาชิก";
+$active_user = "active";
 ?>
 <!doctype html>
 <html lang="en">
@@ -13,19 +18,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?=$titleHead?></title>
+    <title><?= $titleHead ?></title>
     <?php include("./layout/css.php"); ?>
 </head>
 
 <body style="font-family: kanit-Regular;">
     <?php include("./layout/head.php"); ?>
-        <!-- start: Main -->
-        <main class="bg-light">
+    <!-- start: Main -->
+    <main class="bg-light">
         <div class="p-2">
-        <?php include("./layout/navmain.php"); ?>
+            <?php include("./layout/navmain.php"); ?>
             <!-- start: Content -->
             <div class="py-1" style="font-family: kanit-Regular;">
-            <div class="card">
+                <div class="card">
                     <div class="card-body">
                         <table id="table-user" class="table table-striped w-100"></table>
                     </div>
@@ -38,7 +43,7 @@
     <!-- end: Main -->
     <?php include("./layout/script.php"); ?>
     <script>
-        function user_Load(){
+        function user_Load() {
             $.ajax({
                 url: "/RoomBook/backend/service/api_UserList.php",
                 type: "GET",
@@ -101,16 +106,16 @@
                             render: function(data, type, row, meta) {
                                 const u_StatusDelete = row.u_StatusDelete;
                                 let txtBtn = "";
-                                if(u_StatusDelete == 1){
+                                if (u_StatusDelete == 1) {
                                     txtBtn = `<div class="d-grid gap-2 d-md-block" >
                                         <button class="btn btn-primary" type="button" onclick="user_UpdateStatus(this)" value='${JSON.stringify(row)}' id="btn_Add" >เพิ่ม</button>
                                     </div>`;
-                                }else{
+                                } else {
                                     txtBtn = `<div class="d-grid gap-2 d-md-block" >
                                         <button class="btn btn-danger" type="button" onclick="user_UpdateStatus(this)" value='${JSON.stringify(row)}' id="btn_Delete" >ลบ</button>
                                     </div>`;
                                 }
-                                
+
                                 let txtHTML = "";
                                 return txtBtn;
                             }
@@ -121,16 +126,16 @@
         }
         user_Load();
 
-        function user_UpdateStatus(elm){
+        function user_UpdateStatus(elm) {
             let obj = JSON.parse(elm.value);
             let u_Id = obj.u_Id;
             let u_StatusDelete = obj.u_StatusDelete;
             let u_FirstName = obj.u_FirstName;
             let u_LastName = obj.u_LastName;
             let txt = "";
-            if(u_StatusDelete == 1){
+            if (u_StatusDelete == 1) {
                 txt = "เพิ่ม"
-            }else{
+            } else {
                 txt = "ลบ"
             }
 

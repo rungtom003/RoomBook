@@ -18,13 +18,13 @@ $active_home = "active";
 </head>
 <style>
     /* Import Google font - Poppins */
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+    /* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"); */
 
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
+        /* font-family: "Poppins", sans-serif; */
     }
 
     body {
@@ -167,7 +167,7 @@ $active_home = "active";
 <body style="font-family: kanit-Regular;">
     <section class="container">
         <header>Login</header>
-        <form action="#" class="form">
+        <form class="form">
        
 
             <div class="input-box">
@@ -177,10 +177,10 @@ $active_home = "active";
 
             <div class="input-box">
                 <label>Password</label>
-                <input type="text" placeholder="Password" id="u_PasswordHash" required />
+                <input type="password" placeholder="Password" id="u_PasswordHash" required />
             </div>
 
-            <button>Submit</button>
+            <button onclick="userLogin()" type="button">Submit</button>
         </form>
         <div class="signup">
         <span class="signup">Don't have an account?
@@ -188,6 +188,42 @@ $active_home = "active";
         </span>
       </div>
     </section>
+
+    <?php include("./layout/script.php"); ?>
+    <script type="text/javascript">
+        const userLogin = () => {
+            const data = {
+                u_Username: $("#u_Username").val(),
+                u_PasswordHash: $("#u_PasswordHash").val()
+            }
+            $.ajax({
+                url: '/RoomBook/backend/service/api_userLogin.php',
+                type: 'POST',
+                dataType: 'json',
+                data: data,
+                success: function(res) {
+                    //console.log(res);
+                    if (res.status === "success") {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'สำเร็จ',
+                            text: res.message,
+                            didClose:()=>{
+                               window.location.replace('/RoomBook/index.php')
+                            }
+                        })
+                    } else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'ไม่สำเร็จ',
+                            text: res.message
+                        });
+                    }
+                }
+            });
+        }
+    </script>
+    
 </body>
 
 </html>

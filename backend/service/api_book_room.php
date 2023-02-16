@@ -20,10 +20,10 @@ $data_arr = array();
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($connect_status == "success") {
 
-        //$user = unserialize($_SESSION["user"]);
+        $user = unserialize($_SESSION["user"]);
 
         $b_Id = uniqidReal();
-        $u_Id = "U001"; //$user["u_Id"];
+        $u_Id = $user["u_Id"];
         $r_Id = $_POST["r_Id"];
         $b_Head = $_POST["b_Head"];
         $b_NumParticipant = $_POST["b_NumParticipant"];

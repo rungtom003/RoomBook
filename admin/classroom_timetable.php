@@ -4,13 +4,13 @@ $user = (isset($_SESSION['user'])) ? unserialize($_SESSION['user']) : null;
 if ($user == null) {
     header('location: /RoomBook/login_user.php');
 } else {
-    if ($user['ur_Id'] != "R001") // R001 => USER
+    if ($user['ur_Id'] != "R002") // R001 => USER
     {
-        header('location: /RoomBook/admin/index.php');
+        header('location: /RoomBook/index.php');
     }
 }
-$titleHead = "จองห้อง";
-$active_book = "active";
+$titleHead = "จัดการตารางสอน";
+$active_classroom_timetable = "active";
 ?>
 <!doctype html>
 <html lang="en">
@@ -176,15 +176,48 @@ $active_book = "active";
                             </div>
                         </div>
                         <div class="form-floating my-1">
-                            <input type="text" class="form-control" name="daterange" id="daterange" placeholder="เริ่ม-สิ้นสุด" required />
-                            <label for="b_Head">เริ่ม-สิ้นสุด</label>
+                            <input type="text" class="form-control" name="date-start" id="date-start-end" placeholder="วันเริ่มต้น-วันสิ้นสุด" required />
+                            <label for="date-start">วันเริ่มต้น-วันสิ้นสุด</label>
                             <div class="invalid-feedback">
-                                กรุณากรอกวันเวลา
+                                กรุณากรอกวันเริ่มต้น-วันสิ้นสุด
                             </div>
                         </div>
-                        <div class="form-floating my-1">
-                            <textarea class="form-control" placeholder="หมายเหตุเพิ่มเติม" id="b_Note" style="height: 100px"></textarea>
-                            <label for="b_Note">หมายเหตุเพิ่มเติม</label>
+
+
+                        <div class="my-2">
+                            <span>ทำซ้ำ</span><br>
+                            <div class="form-check form-check-inline mt-2">
+                                <input class="form-check-input" type="checkbox" id="Sunday" value="Sunday" name="day-w">
+                                <label class="form-check-label" for="Sunday">อาทิตย์</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="Monday" value="Monday" name="day-w">
+                                <label class="form-check-label" for="Monday">จันทร์</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="Tuesday" value="Tuesday" name="day-w">
+                                <label class="form-check-label" for="Tuesday">อังคาร</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="Wednesday" value="Wednesday" name="day-w">
+                                <label class="form-check-label" for="Wednesday">พุธ</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="Thursday" value="Thursday" name="day-w">
+                                <label class="form-check-label" for="Thursday">พฤหัสบดี</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="Friday" value="Friday" name="day-w">
+                                <label class="form-check-label" for="Friday">ศุกร์</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="Saturday" value="Saturday" name="day-w">
+                                <label class="form-check-label" for="Saturday">เสาร์</label>
+                            </div>
+                            <div class="form-floating my-1">
+                                <textarea class="form-control" placeholder="หมายเหตุเพิ่มเติม" id="b_Note" style="height: 100px"></textarea>
+                                <label for="b_Note">หมายเหตุเพิ่มเติม</label>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -272,7 +305,9 @@ $active_book = "active";
         });
 
         $(document).ready(function() {
-            $('#daterange').daterangepicker({
+
+
+            $('#date-start-end').daterangepicker({
                 "timePicker": true,
                 "timePicker24Hour": true,
                 "startDate": moment(),
@@ -328,54 +363,79 @@ $active_book = "active";
         }
 
         const bookSave = () => {
-            const startDate = $("#daterange").data('daterangepicker').startDate.format('YYYY-MM-DD HH:mm:ss');
-            const endDate = $("#daterange").data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
+            let day_w = [];
+            $.each($("input[name='day-w']"), function(key, val) {
+                if ($(val).prop('checked') === true) {
+                    day_w.push($(val).val());
+                }
+            });
+            const Sunday = $("#Sunday").prop('checked') === true ? true : false;
+            const startDate = $("#date-start-end").data('daterangepicker').startDate.format('YYYY-MM-DD');
+            const endDate = $("#date-start-end").data('daterangepicker').endDate.format('YYYY-MM-DD');
+            const startTime = $("#date-start-end").data('daterangepicker').startDate.format('HH:mm');
+            const endTime = $("#date-start-end").data('daterangepicker').endDate.format('HH:mm');
+
             const data = {
                 r_Id: $("#r_Id").val(),
                 b_Head: $("#b_Head").val(),
                 b_NumParticipant: $("#b_NumParticipant").val(),
                 b_StartDateTime: startDate,
                 b_EndDateTime: endDate,
+                timeStart: startTime,
+                timeEnd: endTime,
+                day_of_w: day_w,
                 b_Note: $("#b_Note").val(),
                 ut_Id: $("#select-usetype").val()
             }
-            $.ajax({
-                url: '/RoomBook/backend/service/api_book_room.php',
-                type: 'POST',
-                dataType: 'json',
-                data: data,
-                beforeSend: function() {
-                    $("#btn-close").prop("hidden", true);
-                    $(".btn-close").prop("hidden", true);
-                    $("#btn-book").prop("hidden", true);
-                    $("#btn-load").prop("hidden", false);
-                },
-                success: function(res) {
-                    $("#btn-close").prop("hidden", false);
-                    $(".btn-close").prop("hidden", false);
-                    $("#btn-book").prop("hidden", false);
-                    $("#btn-load").prop("hidden", true);
 
-                    if (res.status === "success") {
-                        Swal.fire({
-                            position: 'center',
-                            icon: 'success',
-                            title: res.message,
-                            showConfirmButton: false,
-                            timer: 1500,
-                            willClose: () => {
-                                window.location.reload();
-                            }
-                        });
-                    } else {
-                        Swal.fire(
-                            'เกิดข้อผิดพลาด',
-                            res.message,
-                            'warning'
-                        );
+            if (day_w.length === 0) {
+                Swal.fire(
+                    'เลือกวันทำซ้ำ',
+                    'กรุณาเลือกวันทำซ้ำ',
+                    'warning'
+                );
+            } else {
+                $.ajax({
+                    url: '/RoomBook/backend/service/api_classroom_timetable.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: data,
+                    beforeSend: function() {
+                        $("#btn-close").prop("hidden", true);
+                        $(".btn-close").prop("hidden", true);
+                        $("#btn-book").prop("hidden", true);
+                        $("#btn-load").prop("hidden", false);
+                    },
+                    success: function(res) {
+                        //console.log(res);
+                        $("#btn-close").prop("hidden", false);
+                        $(".btn-close").prop("hidden", false);
+                        $("#btn-book").prop("hidden", false);
+                        $("#btn-load").prop("hidden", true);
+
+                        if (res.status === "success") {
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: res.message,
+                                showConfirmButton: false,
+                                timer: 1500,
+                                willClose: () => {
+                                    window.location.reload();
+                                }
+                            });
+                        } else {
+                            Swal.fire(
+                                'เกิดข้อผิดพลาด',
+                                res.message,
+                                'warning'
+                            );
+                        }
                     }
-                }
-            });
+                });
+            }
+            //console.log(data);
+
         }
     </script>
 </body>
