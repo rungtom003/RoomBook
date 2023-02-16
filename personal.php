@@ -1,9 +1,14 @@
 <?php
-    // session_start();
-    // $user = (isset($_SESSION['user'])) ? unserialize($_SESSION['user']) : null;
-    // if($user == null){
-    //     header('location: /ReserveSpace/login.php');
-    // }
+    session_start();
+    $user = (isset($_SESSION['user'])) ? unserialize($_SESSION['user']) : null;
+    if($user == null){
+        header('location: /RoomBook/login_user.php');
+    }
+
+    if($user['ur_Id'] != "R001") // R001 => USER
+    {
+        header('location: /RoomBook/admin/index.php');
+    }
     $titleHead = "ข้อมูลส่วนตัว";
     $active_personal = "active";
 ?>

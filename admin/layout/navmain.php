@@ -39,8 +39,8 @@
             <img class="navbar-profile-image" src="/ReserveSpace/src/img/user.jpg" alt="Image">
         </div>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" style="font-family: kanit-Regular;" href="/ReserveSpace/persionData.php">ข้อมูลส่วนตัว</a></li>
-            <li><a class="dropdown-item" style="font-family: kanit-Regular;" href="/ReserveSpace/backend/Service/logout_api.php">ออกจากระบบ</a></li>
+            <li><a class="dropdown-item" style="font-family: kanit-Regular;" href="#">ข้อมูลส่วนตัว</a></li>
+            <li><a class="dropdown-item" style="font-family: kanit-Regular;" href="/RoomBook/backend/service/api_logout.php">ออกจากระบบ</a></li>
         </ul>
     </div>
 </nav>

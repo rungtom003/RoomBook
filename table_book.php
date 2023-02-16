@@ -1,9 +1,14 @@
 <?php
-// session_start();
-// $user = (isset($_SESSION['user'])) ? unserialize($_SESSION['user']) : null;
-// if($user == null){
-//     header('location: /ReserveSpace/login.php');
-// }
+session_start();
+$user = (isset($_SESSION['user'])) ? unserialize($_SESSION['user']) : null;
+if ($user == null) {
+    header('location: /RoomBook/login_user.php');
+}
+
+if ($user['ur_Id'] != "R001") // R001 => USER
+{
+    header('location: /RoomBook/admin/index.php');
+}
 $titleHead = "ตารางจองห้อง";
 $active_tablebook = "active";
 ?>
@@ -45,8 +50,7 @@ $active_tablebook = "active";
             language: {
                 url: './src/assets/DataTables/LanguageTable/th.json'
             },
-            columnDefs: [
-                {
+            columnDefs: [{
                     targets: 0,
                     title: "ชื่อห้อง",
                     data: "r_Name",
@@ -101,7 +105,7 @@ $active_tablebook = "active";
                     title: "เวลาสิ้นสุด",
                     data: "b_EndDateTime",
                 },
-                
+
             ]
         });
     </script>

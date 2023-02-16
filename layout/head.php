@@ -17,6 +17,12 @@
                 จองห้อง
             </a>
         </li>
+        <li class="sidebar-menu-item <?= isset($active_classroom_timetable) ? $active_classroom_timetable : "" ?>">
+            <a href="/RoomBook/classroom_timetable.php">
+                <i class="ri-draft-line sidebar-menu-item-icon"></i>
+                จัดการตารางสอน
+            </a>
+        </li>
         <li class="sidebar-menu-item <?= isset($active_calendar_book) ? $active_calendar_book : "" ?>">
             <a href="/RoomBook/calendar_book.php">
                 <i class="ri-calendar-todo-line sidebar-menu-item-icon"></i>
