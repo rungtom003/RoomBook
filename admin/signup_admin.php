@@ -4,8 +4,8 @@
 // if($user == null){
 //     header('location: /ReserveSpace/login.php');
 // }
-$titleHead = "Home";
-$active_home = "active";
+$titleHead = "สมัครสมาชิก";
+$signup_admin = "active";
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,232 +16,167 @@ $active_home = "active";
     <title><?= $titleHead ?></title>
     <?php include("./layout/css.php"); ?>
 </head>
-<style>
-    /* Import Google font - Poppins */
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-    }
-
-    body {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        background: rgb(255, 255, 255);
-    }
-
-    .container {
-        position: relative;
-        max-width: 700px;
-        width: 100%;
-        background: #fff;
-        padding: 25px;
-        border-radius: 8px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .container header {
-        font-size: 1.5rem;
-        color: #333;
-        font-weight: 500;
-        text-align: center;
-    }
-
-    .container .form {
-        margin-top: 30px;
-    }
-
-    .form .input-box {
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    .input-box label {
-        color: #333;
-    }
-
-    .form :where(.input-box input, .select-box) {
-        position: relative;
-        height: 50px;
-        width: 100%;
-        outline: none;
-        font-size: 1rem;
-        color: #707070;
-        margin-top: 8px;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        padding: 0 15px;
-    }
-
-    .input-box input:focus {
-        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-    }
-
-    .form .column {
-        display: flex;
-        column-gap: 15px;
-    }
-
-    .form .gender-box {
-        margin-top: 20px;
-    }
-
-    .gender-box h3 {
-        color: #333;
-        font-size: 1rem;
-        font-weight: 400;
-        margin-bottom: 8px;
-    }
-
-    .form :where(.gender-option, .gender) {
-        display: flex;
-        align-items: center;
-        column-gap: 50px;
-        flex-wrap: wrap;
-    }
-
-    .form .gender {
-        column-gap: 5px;
-    }
-
-    .gender input {
-        accent-color: rgb(130, 106, 251);
-    }
-
-    .form :where(.gender input, .gender label) {
-        cursor: pointer;
-    }
-
-    .gender label {
-        color: #707070;
-    }
-
-    .address :where(input, .select-box) {
-        margin-top: 15px;
-    }
-
-    .select-box select {
-        height: 100%;
-        width: 100%;
-        outline: none;
-        border: none;
-        color: #707070;
-        font-size: 1rem;
-    }
-
-    .form button {
-        height: 55px;
-        width: 100%;
-        color: #fff;
-        font-size: 1rem;
-        font-weight: 400;
-        margin-top: 30px;
-        border: none;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        background: rgb(130, 106, 251);
-    }
-
-    .form button:hover {
-        background: rgb(88, 56, 250);
-    }
-
-    /*Responsive*/
-    @media screen and (max-width: 500px) {
-        .form .column {
-            flex-wrap: wrap;
-        }
-
-        .form :where(.gender-option, .gender) {
-            row-gap: 15px;
-        }
-    }
-</style>
 
 <body style="font-family: kanit-Regular;">
-    <section class="container">
-        <header>Admin Registration Form</header>
-        <form action="#" class="form">
-            <div class="column">
-                <div class="input-box">
-                    <label>ชื่อ</label>
-                    <input type="text" placeholder="FirstName" id="u_FirstName" required />
-                </div>
-                <div class="input-box">
-                    <label>นามสกุล</label>
-                    <input type="text" placeholder="LastName" id="u_LastName" required />
-                </div>
-            </div>
+    <?php include("./layout/head.php"); ?>
+    <!-- start: Main -->
+    <main class="bg-light">
+        <div class="p-2">
+            <?php include("./layout/navmain.php"); ?>
+            <!-- start: Content -->
+            <div class="py-1" style="font-family: kanit-Regular;">
+                <div class="d-flex justify-content-center">
+                    <div class="card col-lg-6">
+                        <div class="card-header">
+                            สมัครสมาชิก
+                        </div>
+                        <div class="card-body">
+                            <form class="needs-validation" novalidate>
+                                <div class="row g-2 p-2">
+                                    <div class="col-md">
+                                        <label for="u_FirstName" class="form-label">ชื่อ</label>
+                                        <input type="text" class="form-control" placeholder="FirstName" id="u_FirstName" required>
+                                        <div class="invalid-feedback">
+                                            กรุณาเลือก ชื่อ
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <label for="u_LastName" class="form-label">นามสกุล</label>
+                                        <input type="text" class="form-control" placeholder="LastName" id="u_LastName" required>
+                                        <div class="invalid-feedback">
+                                            กรุณาเลือก สกุล
+                                        </div>
+                                    </div>
+                                </div>
 
-            <div class="column">
-                <div class="input-box">
-                    <label>คณะ</label>
-                    <input type="text" placeholder="Faculty" id="u_Faculty" required />
-                </div>
-                <div class="input-box">
-                    <label>ตำแหน่ง</label>
-                    <input type="text" placeholder="Position" id="u_Position" required />
-                </div>
-            </div>
+                                <div class="row g-2 p-2">
+                                    <div class="col-md">
+                                        <label for="u_Faculty" class="form-label">คณะ</label>
+                                        <input type="text" class="form-control" placeholder="Faculty" id="u_Faculty" required>
+                                        <div class="invalid-feedback">
+                                            กรุณาเลือก คณะ
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <label for="u_Position" class="form-label">ตำแหน่ง</label>
+                                        <input type="text" class="form-control" placeholder="Position" id="u_Position" required>
+                                        <div class="invalid-feedback">
+                                            กรุณาเลือก ตำแหน่ง
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-2 p-2">
+                                    <div class="col-md">
+                                        <label for="u_Username" class="form-label">รหัสประจำตัว</label>
+                                        <input type="text" class="form-control" placeholder="๊Username" id="u_Username" required>
+                                        <div class="invalid-feedback">
+                                            กรุณาเลือก ชื่อ
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-2 p-2">
+                                    <div class="col-md">
+                                        <label for="u_PasswordHash" class="form-label">รหัสผ่าน</label>
+                                        <input type="Password" class="form-control" placeholder="Password" id="u_PasswordHash" required>
+                                        <div class="invalid-feedback">
+                                            กรุณาเลือก รหัสผ่าน
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-2 p-2">
+                                    <div class="col-md">
+                                        <label for="u_Phone" class="form-label">เบอร์ติดต่อ</label>
+                                        <input type="text" class="form-control" placeholder="Phone" id="u_Phone" required>
+                                        <div class="invalid-feedback">
+                                            กรุณาเลือก เบอร์ติดต่อ
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-2 p-2">
+                                    <button type="submit" class="btn btn-primary">สมัครสมาชิก</button>
+                                </div>
 
-            <div class="input-box">
-                <label>Username</label>
-                <input type="text" placeholder="Username" id="u_Username" required />
-            </div>
+                            </form>
 
-            <div class="input-box">
-                <label>Password</label>
-                <input type="text" placeholder="Password" id="u_PasswordHash" required />
-            </div>
 
-            <div class="input-box">
-                <label>Phone Number</label>
-                <input type="text" placeholder="Phone Number" id="u_Phone" required />
-            </div>
-           <div class="gender-box">
-                <h3>สิทธิ์</h3>
-                <div class="gender-option">
-                    <div class="gender">
-                        <input type="radio" id="check-male" name="gender" checked />
-                        <label for="check-male">User</label>
+                        </div>
                     </div>
-                    <div class="gender">
-                        <input type="radio" id="check-female" name="gender" />
-                        <label for="check-female">Admin</label>
-                    </div>
                 </div>
-            </div> 
-            <!-- <div class="input-box address">
-                <label>Address</label>
-                <input type="text" placeholder="Enter street address" required />
-                <input type="text" placeholder="Enter street address line 2" required />
-                <div class="column">
-                    <div class="select-box">
-                        <select>
-                            <option hidden>Country</option>
-                            <option>America</option>
-                            <option>Japan</option>
-                            <option>India</option>
-                            <option>Nepal</option>
-                        </select>
-                    </div>
-                    <input type="text" placeholder="Enter your city" required />
-                </div>
-                <div class="column">
-                    <input type="text" placeholder="Enter your region" required />
-                    <input type="number" placeholder="Enter postal code" required />
-                </div>
-            </div>-->
 
-            <button>Submit</button>
-        </form>
-    </section>
+
+            </div>
+            <!-- end: Content -->
+        </div>
+    </main>
+    <!-- end: Main -->
+    <?php include("./layout/script.php"); ?>
+    <script type="text/javascript">
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        //Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                event.preventDefault()
+                event.stopPropagation()
+                if (form.checkValidity()) {
+                    signup_Admin();
+                }
+                form.classList.add('was-validated');
+            }, false)
+        })
+
+
+        function signup_Admin() {
+            let u_FirstName = $('#u_FirstName').val()
+            let u_LastName = $('#u_LastName').val()
+            let u_Faculty = $('#u_Faculty').val()
+            let u_Position = $('#u_Position').val()
+            let u_Username = $('#u_Username').val()
+            let u_PasswordHash = $('#u_PasswordHash').val()
+            let u_Phone = $('#u_Phone').val()
+
+            let data = {
+                ur_Id : "R002",
+                u_FirstName: u_FirstName,
+                u_LastName: u_LastName,
+                u_Faculty: u_Faculty,
+                u_Position: u_Position,
+                u_Username: u_Username,
+                u_PasswordHash: u_PasswordHash,
+                u_Phone: u_Phone
+            }
+
+            $.ajax({
+                url: "/RoomBook/backend/service/api_userSignup.php",
+                type: "POST",
+                data: data,
+                dataType: "json",
+                success: function(res) {
+                    let message = res.message;
+                    let status = res.status;
+                    if (status == "success") {
+                        Swal.fire({
+                            icon: 'success',
+                            title: message,
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then((result) => {
+                            window.location.reload();
+                        })
+
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'เเจ้งเตือน',
+                            text: message
+                        })
+                    }
+                }
+            });
+
+        }
+    </script>
 </body>
 
 </html>

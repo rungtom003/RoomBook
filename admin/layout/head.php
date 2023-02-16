@@ -29,6 +29,18 @@
                 ประเภทห้อง
             </a>
         </li>
+        <li class="sidebar-menu-item <?= isset($active_user) ? $active_user : "" ?>">
+            <a href="/RoomBook/admin/user.php">
+                <i class="ri-file-user-line sidebar-menu-item-icon"></i>
+                สมาชิก
+            </a>
+        </li>
+        <li class="sidebar-menu-item <?= isset($signup_admin) ? $signup_admin : "" ?>">
+            <a href="/RoomBook/admin/signup_admin.php">
+                <i class="ri-file-user-line sidebar-menu-item-icon"></i>
+                สมัครสมาชิก
+            </a>
+        </li>
     </ul>
 </div>
 <div class="sidebar-overlay"></div>
