@@ -1,9 +1,14 @@
 <?php
-// session_start();
-// $user = (isset($_SESSION['user'])) ? unserialize($_SESSION['user']) : null;
-// if($user == null){
-//     header('location: /ReserveSpace/login.php');
-// }
+session_start();
+$user = (isset($_SESSION['user'])) ? unserialize($_SESSION['user']) : null;
+if ($user == null) {
+    header('location: /RoomBook/login_user.php');
+} else {
+    if ($user['ur_Id'] != "R002") // R002 => ADMIN
+    {
+        header('location: /RoomBook/index.php');
+    }
+}
 $titleHead = "สมัครสมาชิก";
 $signup_admin = "active";
 ?>
@@ -137,7 +142,7 @@ $signup_admin = "active";
             let u_Phone = $('#u_Phone').val()
 
             let data = {
-                ur_Id : "R002",
+                ur_Id: "R002",
                 u_FirstName: u_FirstName,
                 u_LastName: u_LastName,
                 u_Faculty: u_Faculty,

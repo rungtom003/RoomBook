@@ -4,9 +4,9 @@ $user = (isset($_SESSION['user'])) ? unserialize($_SESSION['user']) : null;
 if ($user == null) {
     header('location: /RoomBook/login_user.php');
 } else {
-    if ($user['ur_Id'] != "R001") // R001 => USER
+    if ($user['ur_Id'] != "R002") // R001 => USER
     {
-        header('location: /RoomBook/admin/index.php');
+        header('location: /RoomBook/index.php');
     }
 }
 $titleHead = "ปฏิทินการจอง";

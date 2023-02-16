@@ -3,13 +3,12 @@ session_start();
 $user = (isset($_SESSION['user'])) ? unserialize($_SESSION['user']) : null;
 if ($user == null) {
     header('location: /RoomBook/login_user.php');
+} else {
+    if ($user['ur_Id'] != "R002") // R001 => USER
+    {
+        header('location: /RoomBook/index.php');
+    }
 }
-
-if ($user['ur_Id'] != "R001") // R001 => USER
-{
-    header('location: /RoomBook/admin/index.php');
-}
-
 $titleHead = "จัดการตารางสอน";
 $active_classroom_timetable = "active";
 ?>
