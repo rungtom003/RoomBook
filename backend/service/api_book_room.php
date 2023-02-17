@@ -36,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         $sql = "INSERT INTO `room_book`.`tb_Book` (`b_Id`, `b_ref`, `u_Id`, `r_Id`, `b_Head`, `b_NumParticipant`, `b_StartDateTime`, `b_EndDateTime`, `b_Note` ,`ut_Id`) VALUES ('" . $b_Id . "', '" . uniqidReal() . "', '" . $u_Id . "', '" . $r_Id . "', '" . $b_Head . "', '" . $b_NumParticipant . "', '" . $b_StartDateTime . "', '" . $b_EndDateTime . "', '" . $b_Note . "', '" . $ut_Id . "');";
 
+
         $sql_check = "SELECT * FROM room_book.tb_Book  WHERE  (";
         $sql_check .= " ((b_StartDateTime >= '" . $b_StartDateTime . "' AND b_StartDateTime < '" . $b_EndDateTime . "') AND (b_EndDateTime > '" . $b_StartDateTime . "' AND b_EndDateTime >= '" . $b_EndDateTime . "')) OR";
         $sql_check .= " ((b_StartDateTime <= '" . $b_StartDateTime . "' AND b_StartDateTime < '" . $b_EndDateTime . "') AND (b_EndDateTime > '" . $b_StartDateTime . "' AND b_EndDateTime >= '" . $b_EndDateTime . "')) OR";
