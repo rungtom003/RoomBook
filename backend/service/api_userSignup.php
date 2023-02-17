@@ -17,35 +17,28 @@ function uniqidReal($lenght = 13)
 $resp = new Resp();
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($connect_status == "success") {
-
-        $u_Id = uniqidReal();
-        $ur_Id = $_POST["ur_Id"];
         $u_FirstName = $_POST["u_FirstName"];
         $u_LastName = $_POST["u_LastName"];
-        $u_Faculty = $_POST["u_Faculty"];
-        $u_Position = $_POST["u_Position"];
-        $u_Username = $_POST["u_Username"];
         $u_PasswordHash = $_POST["u_PasswordHash"];
         $u_Phone = $_POST["u_Phone"];
+        $u_Faculty = $_POST["u_Faculty"];
+        $u_Position = $_POST["u_Position"];
+        $u_Username = $_POST['u_Username'];
 
-        $u_Password_hash = hash("sha256", $u_PasswordHash);
-        $sql = "INSERT INTO `room_book`.`tb_user` (`u_Id`,`ur_Id`, `u_FirstName`, `u_LastName`, `u_Faculty`, `u_Position`,";
-        $sql .= "`u_Username`,`u_PasswordHash`,`u_Phone` )";
-        $sql .= "VALUES ('" . $u_Id . "','" . $ur_Id . "', '" . $u_FirstName . "', '" . $u_LastName . "', '" . $u_Faculty . "', '" . $u_Position . "', ";
-        $sql .= " '" . $u_Username . "','" . $u_Password_hash . "','" . $u_Phone . "');";
-
-        $sqlCheckUser = "SELECT * FROM room_book.tb_user where u_Username = '" . $u_Username . "';";
-        $resultUser = $conn->query($sqlCheckUser);
-
-        if ($resultUser->num_rows > 0) {
-            $resp->set_message("รหัสประจำตัวนี้มีข้อมูลอยู่แล้ว");
-            $resp->set_status("Duplicate");
+        $sql = "SELECT * FROM room_book.tb_user where u_Username = '" . $u_Username . "';";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            $resp->set_message("มีชื่อผู้ใช้แล้ว");
+            $resp->set_status("fail");
         } else {
+            $u_Password_hash = hash("sha256", $u_PasswordHash);
+            $sql = "INSERT INTO `room_book`.`tb_user` (`u_Id`, `ur_Id`, `u_FirstName`, `u_LastName`, `u_Username`, `u_PasswordHash`, `u_Phone`, `u_Faculty`, `u_Position`) VALUES ('" . uniqidReal() . "', 'R001', '" . $u_FirstName . "', '" . $u_LastName . "', '" . $u_Username . "', '" . $u_Password_hash . "', '" . $u_Phone . "', '" . $u_Faculty . "', '" . $u_Position . "');";
+
             if ($conn->query($sql) === TRUE) {
-                $resp->set_message("บันทึกข้อมูลสำเร็จ");
+                $resp->set_message("สมัครสมาชิกมูลสำเร็จ");
                 $resp->set_status("success");
             } else {
-                $resp->set_message("ไม่สามารถบันทึกข้อมูลได้");
+                $resp->set_message("ไม่สามารถสมัครสมาชิกได้");
                 $resp->set_status("fail");
             }
         }

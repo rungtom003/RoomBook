@@ -292,7 +292,6 @@ $active_home = "active";
 
     </section>
 
-
     <?php include("./layout/script.php"); ?>
     <script type="text/javascript">
         const userSignup = () => {
