@@ -56,7 +56,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($connect_status == "success") {
 
         $user = unserialize($_SESSION["user"]);
-
         $b_ref = uniqidReal();
         $u_Id = $user["u_Id"];
         $r_Id = $_POST["r_Id"];
@@ -100,6 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 break;
             } else {
                 $sql .= "INSERT INTO `room_book`.`tb_Book` (`b_Id`, `b_ref`, `u_Id`, `r_Id`, `b_Head`, `b_NumParticipant`, `b_StartDateTime`, `b_EndDateTime`, `b_Note` ,`ut_Id`) VALUES ('" . uniqidReal() . "', '".$b_ref."', '" . $u_Id . "', '" . $r_Id . "', '" . $b_Head . "', '" . $b_NumParticipant . "', '" . $b_StartDateTime . "', '" . $b_EndDateTime . "', '" . $b_Note . "', '" . $ut_Id . "');";
+
             }
         }
 

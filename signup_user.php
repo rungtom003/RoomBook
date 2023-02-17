@@ -288,10 +288,10 @@ $active_home = "active";
             <div class="d-flex flex-row justify-content-center my-3">
                 <a href="/RoomBook/login_user.php" class="btn btn-primary">กลับ</a>
             </div>
+
         </form>
 
     </section>
-
 
     <?php include("./layout/script.php"); ?>
     <script type="text/javascript">
