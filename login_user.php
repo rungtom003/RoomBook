@@ -180,11 +180,11 @@ $active_home = "active";
                 <input type="password" placeholder="Password" id="u_PasswordHash" required />
             </div>
 
-            <button onclick="userLogin()" type="button">Submit</button>
+            <button onclick="userLogin()" type="button">Login</button>
         </form>
-        <div class="signup">
+        <div class="signup my-3 d-flex justify-content-center">
         <span class="signup">Don't have an account?
-         <a href="./signup_user.php">Signup</a>
+         <a href="./signup_user.php">สมัครสมาชิก</a>
         </span>
       </div>
     </section>

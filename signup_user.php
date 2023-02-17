@@ -166,7 +166,7 @@ $active_home = "active";
 
 <body style="font-family: kanit-Regular;">
     <section class="container">
-        <header>User Registration Form</header>
+        <header>สมัครสมาชิก</header>
         <form class="form">
             <div class="column">
                 <div class="input-box">
@@ -182,11 +182,43 @@ $active_home = "active";
             <div class="column">
                 <div class="input-box">
                     <label>คณะ</label>
-                    <input type="text" placeholder="Faculty" id="u_Faculty" required />
+                    <!-- <input type="text" placeholder="Faculty" id="u_Faculty" required /> -->
+                    <div class="select-box" >
+                        <select required id="u_Faculty">
+                            <option value="" selected disabled>เลือกคณะ</option>
+                            <option value="คณะเกษตร">คณะเกษตร</option>
+                            <option value="คณะเกษตร">คณะบริหารธุรกิจ</option>
+                            <option value="คณะเกษตร">คณะประมง</option>
+                            <option value="คณะเกษตร">คณะมนุษยศาสตร์</option>
+                            <option value="คณะเกษตร">คณะวนศาสตร์</option>
+                            <option value="คณะเกษตร">คณะวิทยาศาสตร์</option>
+                            <option value="คณะเกษตร">คณะวิศวกรรมศาสตร์</option>
+                            <option value="คณะเกษตร">คณะศึกษาศาสตร์</option>
+                            <option value="คณะเกษตร">คณะเศรษฐศาสตร์</option>
+                            <option value="คณะเกษตร">คณะสถาปัตยกรรมศาสตร์</option>
+                            <option value="คณะเกษตร">คณะสังคมศาสตร์</option>
+                            <option value="คณะเกษตร">คณะสัตวแพทยศาสตร์</option>
+                            <option value="คณะเกษตร">คณะอุตสาหกรรมเกษตร</option>
+                            <option value="คณะเกษตร">คณะเทคนิคการสัตวแพทย์</option>
+                            <option value="คณะเกษตร">คณะสิ่งแวดล้อม</option>
+                            <option value="คณะเกษตร">คณะแพทยศาสตร์</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="input-box">
                     <label>ตำแหน่ง</label>
-                    <input type="text" placeholder="Position" id="u_Position" required />
+                    <!-- <input type="text" placeholder="Position" id="u_Position" required /> -->
+                    <div class="select-box" >
+                        <select required id="u_Position">
+                            <option value="" selected disabled>เลือกตำแหน่ง</option>
+                            <option value="นักศึกษา">นักศึกษา</option>
+                            <option value="อาจารย์">อาจารย์</option>
+                            <option value="ศาสตราจารย์">ศาสตราจารย์</option>
+                            <option value="รองศาสตราจารย์">รองศาสตราจารย์</option>
+                            <option value="ผู้ช่วยศาสตราจารย์">ผู้ช่วยศาสตราจารย์</option>
+                            <option value="เจ้าหน้าที่">เจ้าหน้าที่</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
@@ -252,7 +284,10 @@ $active_home = "active";
                     <input type="number" placeholder="Enter postal code" required />
                 </div>
             </div> -->
-            <button id="btn-submit" onclick="userSignup()" type="button">Submit</button>
+            <button id="btn-submit" onclick="userSignup()" type="button">สมัคร</button>
+            <div class="d-flex flex-row justify-content-center my-3">
+                <a href="/RoomBook/login_user.php" class="btn btn-primary">กลับ</a>
+            </div>
         </form>
 
     </section>
@@ -280,8 +315,8 @@ $active_home = "active";
                             icon: 'success',
                             title: 'สำเร็จ',
                             text: res.message,
-                            didClose:()=>{
-                               window.location.replace('/RoomBook/login_user.php')
+                            didClose: () => {
+                                window.location.replace('/RoomBook/login_user.php')
                             }
                         })
                     } else {
