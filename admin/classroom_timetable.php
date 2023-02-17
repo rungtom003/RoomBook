@@ -151,6 +151,7 @@ $active_classroom_timetable = "active";
                     <div class="modal-body">
 
                         <input type="text" class="form-control" id="r_Id" placeholder="รหัสห้อง" hidden>
+                        <input type="text" class="form-control" id="r_Name" placeholder="รหัสห้อง" hidden>
 
                         <div class="form-floating my-1">
                             <input type="text" class="form-control" id="b_Head" placeholder="หัวข้อ" required>
@@ -255,7 +256,7 @@ $active_classroom_timetable = "active";
                 });
 
                 $.each(res.data.useType, function(key, val) {
-                    usetypeOption += `<option value="${val.ut_Id}">${val.ut_Name}</option>`;
+                    usetypeOption += `<option value="${val.ut_Id}" data-ut_Name="${val.ut_Name}">${val.ut_Name}</option>`;
                 });
 
                 $("#select-building").html(buildingOption);
@@ -302,6 +303,7 @@ $active_classroom_timetable = "active";
             const room_obj = JSON.parse(room_json);
             $("#staticBackdropLabel-book_room").html(`จองห้อง # ${room_obj.r_Name}`);
             $("#r_Id").val(room_obj.r_Id);
+            $("#r_Name").val(room_obj.r_Name);
         });
 
         $(document).ready(function() {
@@ -375,6 +377,9 @@ $active_classroom_timetable = "active";
             const startTime = $("#date-start-end").data('daterangepicker').startDate.format('HH:mm');
             const endTime = $("#date-start-end").data('daterangepicker').endDate.format('HH:mm');
 
+            const element = document.getElementById("select-usetype");
+            const ut_Name = element.options[element.selectedIndex].getAttribute("data-ut_Name");
+
             const data = {
                 r_Id: $("#r_Id").val(),
                 b_Head: $("#b_Head").val(),
@@ -385,7 +390,9 @@ $active_classroom_timetable = "active";
                 timeEnd: endTime,
                 day_of_w: day_w,
                 b_Note: $("#b_Note").val(),
-                ut_Id: $("#select-usetype").val()
+                ut_Id: $("#select-usetype").val(),
+                ut_Name:ut_Name,
+                r_Name:$("#r_Name").val()
             }
 
             if (day_w.length === 0) {
