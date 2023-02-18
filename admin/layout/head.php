@@ -29,6 +29,12 @@
                 ตารางจองห้อง
             </a>
         </li>
+        <li class="sidebar-menu-item <?= isset($active_dataBookRoom) ? $active_dataBookRoom : "" ?>">
+            <a href="/RoomBook/admin/book_list.php">
+                <i class="ri-delete-bin-line sidebar-menu-item-icon"></i>
+                ลบข้อมูลการจอง
+            </a>
+        </li>
         <li class="sidebar-menu-item <?= isset($active_building) ? $active_building : "" ?>">
             <a href="/RoomBook/admin/building.php">
                 <i class="ri-community-line sidebar-menu-item-icon"></i>
