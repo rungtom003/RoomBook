@@ -33,9 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $ut_Id = $_POST["ut_Id"];
         $r_Name = $_POST["r_Name"];
         $ut_Name = $_POST["ut_Name"];
-
+        
         $sql = "INSERT INTO `room_book`.`tb_Book` (`b_Id`, `b_ref`, `u_Id`, `r_Id`, `b_Head`, `b_NumParticipant`, `b_StartDateTime`, `b_EndDateTime`, `b_Note` ,`ut_Id`) VALUES ('" . $b_Id . "', '" . uniqidReal() . "', '" . $u_Id . "', '" . $r_Id . "', '" . $b_Head . "', '" . $b_NumParticipant . "', '" . $b_StartDateTime . "', '" . $b_EndDateTime . "', '" . $b_Note . "', '" . $ut_Id . "');";
-
 
         $sql_check = "SELECT * FROM room_book.tb_Book  WHERE  (";
         $sql_check .= " ((b_StartDateTime >= '" . $b_StartDateTime . "' AND b_StartDateTime < '" . $b_EndDateTime . "') AND (b_EndDateTime > '" . $b_StartDateTime . "' AND b_EndDateTime >= '" . $b_EndDateTime . "')) OR";
