@@ -27,11 +27,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $bd_Subdistrict = $_POST["bd_Subdistrict"];
         $bd_District = $_POST["bd_District"];
         $bd_Province = $_POST["bd_Province"];
+        $bd_Lat = $_POST["bd_Lat"];
+        $bd_Lng = $_POST["bd_Lng"];
 
         $sql = "INSERT INTO `room_book`.`tb_building` (`bd_id`,`bd_Name`, `bd_Floor`, `bd_NumRoom`, `bd_Detail`, `bd_Address`, ";
-        $sql .= " `bd_Road`,`bd_Subdistrict`, `bd_District`, `bd_Province` ) ";
+        $sql .= " `bd_Road`,`bd_Subdistrict`, `bd_District`, `bd_Province`,`bd_Lat`,`bd_Lng` ) ";
         $sql .= "VALUES ('".$bd_id."','" . $bd_Name . "', '" . $bd_Floor . "', '" . $bd_NumRoom . "', '" . $bd_Detail . "', '" . $bd_Address . "', ";
-        $sql .= " '" . $bd_Road . "', '" . $bd_Subdistrict . "', '" . $bd_District . "', '" . $bd_Province . "' );";
+        $sql .= " '" . $bd_Road . "', '" . $bd_Subdistrict . "', '" . $bd_District . "', '" . $bd_Province . "','".$bd_Lat."','".$bd_Lng."' );";
 
         $sqlCheck = "SELECT * FROM room_book.tb_building where bd_Name = '" . $bd_Name . "';";
         $result = $conn->query($sqlCheck);

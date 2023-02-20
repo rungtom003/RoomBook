@@ -115,7 +115,6 @@ $active_user = "active";
                                         <button class="btn btn-danger" type="button" onclick="user_UpdateStatus(this)" value='${JSON.stringify(row)}' id="btn_Delete" >ลบ</button>
                                     </div>`;
                                 }
-
                                 let txtHTML = "";
                                 return txtBtn;
                             }
