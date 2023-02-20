@@ -1,11 +1,16 @@
 <?php
-// session_start();
-// $user = (isset($_SESSION['user'])) ? unserialize($_SESSION['user']) : null;
-// if($user == null){
-//     header('location: /ReserveSpace/login.php');
-// }
-$titleHead = "ข้อมูลส่วนตัว";
-$active_personal = "active";
+session_start();
+$user = (isset($_SESSION['user'])) ? unserialize($_SESSION['user']) : null;
+if ($user == null) {
+    header('location: /RoomBook/login_user.php');
+} else {
+    if ($user['ur_Id'] != "R001") // R001 => USER
+    {
+        header('location: /RoomBook/admin/index.php');
+    }
+}
+    $titleHead = "ข้อมูลส่วนตัว";
+    $active_personal = "active";
 ?>
 <!doctype html>
 <html lang="en">
@@ -36,12 +41,12 @@ $active_personal = "active";
                                     <div class="row g-2 p-2">
                                         <div class="col-md">
                                             <label for="u_FirstName" class="form-label">ชื่อ</label>
-                                            <input type="text" class="form-control" placeholder="FirstName" id="u_FirstName" >
+                                            <input type="text" class="form-control" placeholder="FirstName" id="u_FirstName" value="<?=$user["u_FirstName"]?>">
                                             <div id="emailHelp" class="form-text">We'll </div>
                                         </div>
                                         <div class="col-md">
                                             <label for="u_LastName" class="form-label">นามสกุล</label>
-                                            <input type="text" class="form-control" placeholder="LastName" id="u_LastName">
+                                            <input type="text" class="form-control" placeholder="LastName" id="u_LastName" value="<?=$user["u_LastName"]?>">
                                             <div id="emailHelp" class="form-text">We'll </div>
                                         </div>
                                     </div>
@@ -50,12 +55,12 @@ $active_personal = "active";
                                     <div class="row g-2 p-2">
                                         <div class="col-md">
                                             <label for="u_Faculty" class="form-label">คณะ</label>
-                                            <input type="text" class="form-control" placeholder="Faculty" id="u_Faculty" >
+                                            <input type="text" class="form-control" placeholder="Faculty" id="u_Faculty" value="<?=$user["u_Faculty"]?>">
                                             <div id="emailHelp" class="form-text">We'll </div>
                                         </div>
                                         <div class="col-md">
                                             <label for="u_Position" class="form-label">ตำแหน่ง</label>
-                                            <input type="text" class="form-control" placeholder="Position" id="u_Position">
+                                            <input type="text" class="form-control" placeholder="Position" id="u_Position" value="<?=$user["u_Position"]?>">
                                             <div id="emailHelp" class="form-text">We'll </div>
                                         </div>
                                     </div>
@@ -69,7 +74,7 @@ $active_personal = "active";
                                     <div class="row g-2 p-2">
                                         <div class="col-md">
                                             <label for="u_Phone" class="form-label">เบอร์โทรศัพท์</label>
-                                            <input type="text" class="form-control" placeholder="Phone" id="u_Phone" >
+                                            <input type="text" class="form-control" placeholder="Phone" id="u_Phone" value="<?=$user["u_Phone"]?>">
                                             <div id="emailHelp" class="form-text">We'll </div>
                                         </div>
                                     </div>

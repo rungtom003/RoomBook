@@ -7,37 +7,65 @@
     <ul class="sidebar-menu p-3 m-0 mb-0">
         <li class="sidebar-menu-item <?= isset($active_index) ? $active_index : "" ?>">
             <a href="/RoomBook/admin/index.php">
-                <i class="ri-file-user-line sidebar-menu-item-icon"></i>
+                <i class="ri-home-5-line sidebar-menu-item-icon"></i>
                 หน้าเเรก
+            </a>
+        </li>
+        <li class="sidebar-menu-item <?= isset($active_classroom_timetable) ? $active_classroom_timetable : "" ?>">
+            <a href="/RoomBook/admin/classroom_timetable.php">
+                <i class="ri-draft-line sidebar-menu-item-icon"></i>
+                จัดการตารางสอน
+            </a>
+        </li>
+        <li class="sidebar-menu-item <?= isset($active_calendar_book) ? $active_calendar_book : "" ?>">
+            <a href="/RoomBook/admin/calendar_book.php">
+                <i class="ri-calendar-todo-line sidebar-menu-item-icon"></i>
+                ปฏิทินการจอง
+            </a>
+        </li>
+        <li class="sidebar-menu-item <?= isset($active_tablebook) ? $active_tablebook : "" ?>">
+            <a href="/RoomBook/admin/table_book.php">
+                <i class="ri-table-line sidebar-menu-item-icon"></i>
+                ตารางจองห้อง
+            </a>
+        </li>
+        <li class="sidebar-menu-item <?= isset($active_dataBookRoom) ? $active_dataBookRoom : "" ?>">
+            <a href="/RoomBook/admin/book_list.php">
+                <i class="ri-delete-bin-line sidebar-menu-item-icon"></i>
+                ลบข้อมูลการจอง
             </a>
         </li>
         <li class="sidebar-menu-item <?= isset($active_building) ? $active_building : "" ?>">
             <a href="/RoomBook/admin/building.php">
-                <i class="ri-file-user-line sidebar-menu-item-icon"></i>
+                <i class="ri-community-line sidebar-menu-item-icon"></i>
                 อาคาร
             </a>
         </li>
         <li class="sidebar-menu-item <?= isset($active_room) ? $active_room : "" ?>">
             <a href="/RoomBook/admin/room.php">
-                <i class="ri-file-user-line sidebar-menu-item-icon"></i>
+                <i class="ri-home-7-line sidebar-menu-item-icon"></i>
                 ห้อง
             </a>
         </li>
         <li class="sidebar-menu-item <?= isset($active_roomType) ? $active_roomType : "" ?>">
             <a href="/RoomBook/admin/roomType.php">
-                <i class="ri-file-user-line sidebar-menu-item-icon"></i>
+                <i class="ri-building-2-line sidebar-menu-item-icon"></i>
                 ประเภทห้อง
             </a>
         </li>
         <li class="sidebar-menu-item <?= isset($active_user) ? $active_user : "" ?>">
             <a href="/RoomBook/admin/user.php">
+<<<<<<< HEAD
                 <i class="ri-file-user-line sidebar-menu-item-icon"></i>
+=======
+                <i class="ri-user-follow-line sidebar-menu-item-icon"></i>
+>>>>>>> 4b899b9657f8a9f84c350c95702fbf0cce7a6572
                 สมาชิก
             </a>
         </li>
         <li class="sidebar-menu-item <?= isset($signup_admin) ? $signup_admin : "" ?>">
             <a href="/RoomBook/admin/signup_admin.php">
-                <i class="ri-file-user-line sidebar-menu-item-icon"></i>
+                <i class="ri-user-add-line sidebar-menu-item-icon"></i>
                 สมัครสมาชิก
             </a>
         </li>
