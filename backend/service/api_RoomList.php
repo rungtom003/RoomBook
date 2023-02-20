@@ -6,7 +6,7 @@ $resp = new Resp();
 $dataUsers = array();
 if ($_SERVER['REQUEST_METHOD'] == "GET") {
     if ($connect_status == "success") {
-        $sql = "SELECT a.r_Id,a.r_Name,a.r_Floor,a.r_Detail,a.r_Img,b.bd_Name, c.rt_Name FROM room_book.tb_room as a inner join room_book.tb_building as b on a.bd_Id = b.bd_Id ";
+        $sql = "SELECT a.r_Seats,a.r_Id,a.r_Name,a.r_Floor,a.r_Detail,a.r_Img,b.bd_Name, c.rt_Name FROM room_book.tb_room as a inner join room_book.tb_building as b on a.bd_Id = b.bd_Id ";
         $sql .="inner join room_book.tb_roomType as c on a.rt_Id = c.rt_Id;";
        
         $result = $conn->query($sql);

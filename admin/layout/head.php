@@ -55,11 +55,7 @@
         </li>
         <li class="sidebar-menu-item <?= isset($active_user) ? $active_user : "" ?>">
             <a href="/RoomBook/admin/user.php">
-<<<<<<< HEAD
-                <i class="ri-file-user-line sidebar-menu-item-icon"></i>
-=======
                 <i class="ri-user-follow-line sidebar-menu-item-icon"></i>
->>>>>>> 4b899b9657f8a9f84c350c95702fbf0cce7a6572
                 สมาชิก
             </a>
         </li>
