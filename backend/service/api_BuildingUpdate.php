@@ -19,28 +19,32 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $bd_Subdistrict = $_POST["bd_Subdistrict"];
         $bd_District = $_POST["bd_District"];
         $bd_Province = $_POST["bd_Province"];
+        $bd_Lat = $_POST["bd_Lat"];
+        $bd_Lng = $_POST["bd_Lng"];
 
         $sql = "UPDATE `room_book`.`tb_building` SET `bd_Name` = '" . $bd_Name . "', `bd_Floor` = '".$bd_Floor."', `bd_NumRoom`='".$bd_NumRoom."',";
         $sql .= "`bd_Detail`='".$bd_Detail."',`bd_Address`='".$bd_Address."',`bd_Road`='".$bd_Road."',`bd_Subdistrict`='".$bd_Subdistrict."', ";
-        $sql .="`bd_District`='".$bd_District."',`bd_Province` = '".$bd_Province."', `bd_DateTimeUpdate` = '".$bd_DateTimeUpdate."'  ";
+        $sql .="`bd_District`='".$bd_District."',`bd_Province` = '".$bd_Province."', `bd_DateTimeUpdate` = '".$bd_DateTimeUpdate."',  ";
+        $sql .= "`bd_Lat` = '".$bd_Lat."', `bd_Lng` = '".$bd_Lng."'  ";
         $sql .= "WHERE `bd_id` = '" . $bd_id . "';";
 
-        if ($conn->query($sql) === TRUE) {
-            $resp->set_message("แก้ไขข้อมูลสำเร็จ");
-            $resp->set_status("success");
+        $sqlCheck = "SELECT * FROM room_book.tb_building where bd_Name = '" . $bd_Name . "' and bd_id != '".$bd_id."' ;";
+        $result = $conn->query($sqlCheck);
 
-            // $sqlSelect = "SELECT * FROM reserve_space.tb_user where `u_Username` = '" . $u_Username . "' and `u_CardNumber` = '" . $u_CardNumber . "' ;";
-            // $result = $conn->query($sqlSelect);
-            // if ($result->num_rows > 0) {
-            //     $row = $result->fetch_assoc();
-            //     $resp->data = $row;
-            //     $_SESSION["user"] = serialize($row);
-            // }
-
+        if ($result->num_rows > 0) {
+            $resp->set_message("ชื่ออาคารซ้ำ");
+            $resp->set_status("Duplicate");
         } else {
-            $resp->set_message("ไม่สามารถบันทึกข้อมูลได้");
-            $resp->set_status("fail");
+            if ($conn->query($sql) === TRUE) {
+                $resp->set_message("แก้ไขข้อมูลสำเร็จ");
+                $resp->set_status("success");
+            } else {
+                $resp->set_message("ไม่สามารถบันทึกข้อมูลได้");
+                $resp->set_status("fail");
+            }
         }
+
+        
     } else {
         $resp->set_message("connection database fail.");
         $resp->set_status("fail");

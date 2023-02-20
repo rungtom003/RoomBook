@@ -79,7 +79,7 @@ $active_room = "active";
                                 <div class="row g-2 p-2">
                                     <div class="col-md">
                                         <div class="col-md">
-                                            <label for="inputAddRt_Id" class="col-form-label">ชื่อห้อง</label>
+                                            <label for="" class="col-form-label">ชื่อห้อง</label>
                                             <input class="form-control" placeholder="Room name" id="inputR_Name" required></input>
                                             <div class="invalid-feedback">
                                                 กรุณากรอก ชื่อห้อง
@@ -88,17 +88,26 @@ $active_room = "active";
                                     </div>
                                     <div class="col-md-3">
                                         <div class="col-md">
-                                            <label for="inputAddRt_Id" class="col-form-label">ชั้นที่</label>
+                                            <label for="" class="col-form-label">ชั้นที่</label>
                                             <input class="form-control" placeholder="Floor" id="inputR_Floor" required></input>
                                             <div class="invalid-feedback">
                                                 กรุณากรอก ชั้นที่
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-3">
+                                        <div class="col-md">
+                                            <label for="" class="col-form-label">จำนวนที่นั่ง</label>
+                                            <input type="number" class="form-control" placeholder="0" id="inputR_Seats" required></input>
+                                            <div class="invalid-feedback">
+                                                กรุณากรอก จำนวนที่นั่ง
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row g-2 p-2">
                                     <div class="mb-3">
-                                        <label for="u_ProductName" class="form-label">รายละเอียดเพิ่มเติม</label>
+                                        <label for="" class="form-label">รายละเอียดเพิ่มเติม</label>
                                         <textarea class="form-control" placeholder="Detail" id="inputR_Detail" rows="3"></textarea>
                                     </div>
                                 </div>
@@ -180,11 +189,16 @@ $active_room = "active";
                         },
                         {
                             targets: 4,
+                            title: "ที่นั่ง",
+                            data: "r_Seats",
+                        },
+                        {
+                            targets: 5,
                             title: "รายละเอียด",
                             data: "r_Detail",
                         },
                         {
-                            targets: 5,
+                            targets: 6,
                             title: "#",
                             data: null,
                             defaultContent: "",
@@ -276,7 +290,6 @@ $active_room = "active";
                 },
                 dataType: "json",
                 success: function(res) {
-                    let r_Id = res.data.r_Id;
                     let bd_Id = res.data.bd_Id;
                     let rt_Id = res.data.rt_Id;
                     let r_Img = res.data.r_Img;
@@ -287,6 +300,7 @@ $active_room = "active";
                     $('#inputR_Name').val(res.data.r_Name)
                     $('#inputR_Floor').val(res.data.r_Floor)
                     $('#inputR_Detail').val(res.data.r_Detail)
+                    $('#inputR_Seats').val(res.data.r_Seats)
                     $('#addRoomModal').modal('show')
 
                 }
@@ -300,6 +314,7 @@ $active_room = "active";
             let r_Name = $('#inputR_Name').val()
             let r_Floor = $('#inputR_Floor').val()
             let r_Detail = $('#inputR_Detail').val()
+            let r_Seats = $('#inputR_Seats').val()
 
             const formData = new FormData();
             formData.append("bd_Id", bd_Id);
@@ -307,6 +322,7 @@ $active_room = "active";
             formData.append("r_Name", r_Name);
             formData.append("r_Floor", r_Floor);
             formData.append("r_Detail", r_Detail);
+            formData.append("r_Seats", r_Seats);
 
             $.ajax({
                 url: "/RoomBook/backend/service/api_RoomAdd.php",
@@ -399,6 +415,7 @@ $active_room = "active";
             let r_Name = $('#inputR_Name').val()
             let r_Floor = $('#inputR_Floor').val()
             let r_Detail = $('#inputR_Detail').val()
+            let r_Seats = $('#inputR_Seats').val()
 
             const formData = new FormData();
             formData.append("r_Id", r_Id);
@@ -407,6 +424,7 @@ $active_room = "active";
             formData.append("r_Name", r_Name);
             formData.append("r_Floor", r_Floor);
             formData.append("r_Detail", r_Detail);
+            formData.append("r_Seats", r_Seats);
 
             $.ajax({
                 url: "/RoomBook/backend/service/api_RoomUpdate.php",

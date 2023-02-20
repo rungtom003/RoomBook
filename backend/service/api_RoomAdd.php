@@ -23,16 +23,25 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $r_Name = $_POST["r_Name"];
         $r_Floor = $_POST["r_Floor"];
         $r_Detail = $_POST["r_Detail"];
+        $r_Seats = $_POST["r_Seats"];
 
-        $sql = "INSERT INTO `room_book`.`tb_room` (`r_Id`,`bd_Id`, `rt_Id`, `r_Name`, `r_Floor`, `r_Detail`) ";
-        $sql .= "VALUES ('".$r_Id."','" . $bd_Id . "', '" . $rt_Id . "', '" . $r_Name . "', '" . $r_Floor . "', '" . $r_Detail . "'); ";
+        $sql = "INSERT INTO `room_book`.`tb_room` (`r_Id`,`bd_Id`, `rt_Id`, `r_Name`, `r_Floor`, `r_Detail`, `r_Seats`) ";
+        $sql .= "VALUES ('".$r_Id."','" . $bd_Id . "', '" . $rt_Id . "', '" . $r_Name . "', '" . $r_Floor . "', '" . $r_Detail . "', '".$r_Seats."'); ";
 
-        if ($conn->query($sql) === TRUE) {
-            $resp->set_message("บันทึกข้อมูลสำเร็จ");
-            $resp->set_status("success");
+        $sqlCheck = "SELECT * FROM room_book.tb_room where bd_Id = '" . $bd_Id . "' and r_Name = '".$r_Name."'; ";
+        $result = $conn->query($sqlCheck);
+        if ($result->num_rows > 0) {
+            $resp->set_message("ชื่อห้องซ้ำ");
+            $resp->set_status("Duplicate");
         } else {
-            $resp->set_message("ไม่สามารถบันทึกข้อมูลได้");
-            $resp->set_status("fail");
+            if ($conn->query($sql) === TRUE) {
+                $resp->set_message("บันทึกข้อมูลสำเร็จ");
+                $resp->set_status("success");
+    
+            } else {
+                $resp->set_message("ไม่สามารถบันทึกข้อมูลได้");
+                $resp->set_status("fail");
+            }
         }
     } else {
         $resp->set_message("connection database fail.");

@@ -89,6 +89,28 @@ $active_building = "active";
                                 <div class="row g-2 p-2">
                                     <div class="col-md">
                                         <div class="col-md">
+                                            <label class="form-label">ละติจูด</label>
+                                            <input type="text" class="form-control" placeholder="Latitude" id="bd_Lat" >
+                                            <!-- <div  class="form-text">Enter your Last name</div> -->
+                                            <div class="invalid-feedback">
+                                                กรุณากรอก ละติจูด
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="col-md">
+                                            <label class="form-label">ลองจิจูด</label>
+                                            <input type="text" class="form-control" placeholder="Longitude" id="bd_Lng" >
+                                            <!-- <div  class="form-text">Enter your Last name</div> -->
+                                        </div>
+                                        <div class="invalid-feedback">
+                                                กรุณากรอก ลองจิจูด
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="row g-2 p-2">
+                                    <div class="col-md">
+                                        <div class="col-md">
                                             <label class="form-label">ที่ตั้ง/หมู่</label>
                                             <input type="text" class="form-control" placeholder="Address" id="bd_Address" required>
                                             <!-- <div  class="form-text">Enter your Last name</div> -->
@@ -267,6 +289,8 @@ $active_building = "active";
                     $('#bd_Subdistrict').val(res.data.bd_Subdistrict).attr("placeholder", "").prop("readonly", true);
                     $('#bd_District').val(res.data.bd_District).attr("placeholder", "").prop("readonly", true);
                     $('#bd_Province').val(res.data.bd_Province).attr("placeholder", "").prop("readonly", true);
+                    $('#bd_Lat').val(res.data.bd_Lat).attr("placeholder", "Latitude").prop("readonly", true);
+                    $('#bd_Lng').val(res.data.bd_Lng).attr("placeholder", "Longitude").prop("readonly", true);
                 }
             });
         }
@@ -282,6 +306,8 @@ $active_building = "active";
             $('#bd_Subdistrict').val("").attr("placeholder", "Subdistrict").prop("readonly", false);
             $('#bd_District').val("").attr("placeholder", "District").prop("readonly", false);
             $('#bd_Province').val("").attr("placeholder", "Province").prop("readonly", false);
+            $('#bd_Lat').val("").attr("placeholder", "Latitude").prop("readonly", false);
+            $('#bd_Lng').val("").attr("placeholder", "Longitude").prop("readonly", false);
             $('#btnSave').show();
             $('#buildingModal').modal('show');
         }
@@ -307,6 +333,8 @@ $active_building = "active";
                     $('#bd_Subdistrict').val(res.data.bd_Subdistrict).attr("placeholder", "Subdistrict").prop("readonly", false);
                     $('#bd_District').val(res.data.bd_District).attr("placeholder", "District").prop("readonly", false);
                     $('#bd_Province').val(res.data.bd_Province).attr("placeholder", "Province").prop("readonly", false);
+                    $('#bd_Lat').val(res.data.bd_Lat).attr("placeholder", "Latitude").prop("readonly", false);
+                    $('#bd_Lng').val(res.data.bd_Lng).attr("placeholder", "Longitude").prop("readonly", false);
                     $('#bd_id').val(res.data.bd_id);
                     $('#btnSave').show();
                 }
@@ -325,6 +353,8 @@ $active_building = "active";
             let bd_Subdistrict = $('#bd_Subdistrict').val()
             let bd_District = $('#bd_District').val()
             let bd_Province = $('#bd_Province').val()
+            let bd_Lat = $('#bd_Lat').val() 
+            let bd_Lng = $('#bd_Lng').val() 
 
             const formData = new FormData();
             formData.append("bd_Name", bd_Name);
@@ -336,6 +366,8 @@ $active_building = "active";
             formData.append("bd_Subdistrict", bd_Subdistrict);
             formData.append("bd_District", bd_District);
             formData.append("bd_Province", bd_Province);
+            formData.append("bd_Lat", bd_Lat);
+            formData.append("bd_Lng", bd_Lng);
 
             $.ajax({
                 url: "/RoomBook/backend/service/api_BuildingAdd.php",
@@ -387,6 +419,8 @@ $active_building = "active";
             let bd_Subdistrict = $('#bd_Subdistrict').val()
             let bd_District = $('#bd_District').val()
             let bd_Province = $('#bd_Province').val()
+            let bd_Lat = $('#bd_Lat').val() 
+            let bd_Lng = $('#bd_Lng').val() 
 
             const formData = new FormData();
             formData.append("bd_id", bd_id);
@@ -399,6 +433,8 @@ $active_building = "active";
             formData.append("bd_Subdistrict", bd_Subdistrict);
             formData.append("bd_District", bd_District);
             formData.append("bd_Province", bd_Province);
+            formData.append("bd_Lat", bd_Lat);
+            formData.append("bd_Lng", bd_Lng);
 
             $.ajax({
                 url: "/RoomBook/backend/service/api_BuildingUpdate.php",
