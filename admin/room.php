@@ -98,7 +98,7 @@ $active_room = "active";
                                     <div class="col-md-3">
                                         <div class="col-md">
                                             <label for="" class="col-form-label">จำนวนที่นั่ง</label>
-                                            <input type="number" class="form-control" placeholder="0" id="inputR_Seats" required></input>
+                                            <input type="number" class="form-control" min="1" placeholder="0" id="inputR_Seats" required></input>
                                             <div class="invalid-feedback">
                                                 กรุณากรอก จำนวนที่นั่ง
                                             </div>
