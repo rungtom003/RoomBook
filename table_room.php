@@ -44,8 +44,8 @@ $active_tableroom = "active";
     <script type="text/javascript">
         $('#table-room').DataTable({
             ajax: '/RoomBook/backend/service/api_detail_room_list.php',
-            dom: 'Bfrtip',
-            buttons: ['copy', 'csv', 'excel', 'colvis'],
+            // dom: 'Bfrtip',
+            // buttons: ['copy', 'csv', 'excel', 'colvis'],
             responsive: true,
             language: {
                 url: './src/assets/DataTables/LanguageTable/th.json'
@@ -62,39 +62,53 @@ $active_tableroom = "active";
                 },
                 {
                     targets: 2,
+                    title: "จำนวนที่นั่ง",
+                    data: "r_Seats",
+                },
+                {
+                    targets: 3,
                     title: "ประเภทห้อง",
                     data: "rt_Name",
                 },
                 {
-                    targets: 3,
+                    targets: 4,
                     title: "ชั้น",
                     data: "r_Floor",
                 },
                 {
-                    targets: 4,
+                    targets: 5,
                     title: "ที่อยู่",
                     data: "bd_Address",
                 },
                 {
-                    targets: 5,
+                    targets: 6,
                     title: "ถนน",
                     data: "bd_Road",
                 },
                 {
-                    targets: 6,
+                    targets: 7,
                     title: "ตำบล",
                     data: "bd_Subdistrict",
                 },
                 {
-                    targets: 7,
+                    targets: 8,
                     title: "อำเภอ",
                     data: "bd_District",
                 },
                 {
-                    targets: 8,
+                    targets: 9,
                     title: "จังหวัด",
                     data: "bd_Province",
-                },
+                }, {
+                    targets: 10,
+                    title: "แผนที่",
+                    data: null,
+                    defaultContent: "",
+                    render: function(data, type, row, meta) {
+                        let txtHTML = `<a target="_blank" href="http://www.google.com/maps/place/${row.bd_Lat},${row.bd_Lng}/@${row.bd_Lat},${row.bd_Lng},17z">แผนที่</a>`;
+                        return txtHTML;
+                    }
+                }
             ]
         });
     </script>

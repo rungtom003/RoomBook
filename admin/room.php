@@ -161,8 +161,8 @@ $active_room = "active";
             const LoadTable = (data) => {
                 $('#table-room').DataTable({
                     data: data,
-                    dom: 'Bfrtip',
-                    buttons: ['copy', 'csv', 'excel', 'colvis'],
+                    // dom: 'Bfrtip',
+                    // buttons: ['copy', 'csv', 'excel', 'colvis'],
                     responsive: true,
                     language: {
                         url: '../src/assets/DataTables/LanguageTable/th.json'

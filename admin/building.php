@@ -207,8 +207,8 @@ $active_building = "active";
             const LoadTable = (data) => {
                 $('#table-building').DataTable({
                     data: data,
-                    dom: 'Bfrtip',
-                    buttons: ['copy', 'csv', 'excel', 'colvis'],
+                    // dom: 'Bfrtip',
+                    // buttons: ['copy', 'csv', 'excel', 'colvis'],
                     responsive: true,
                     language: {
                         url: '../src/assets/DataTables/LanguageTable/th.json'

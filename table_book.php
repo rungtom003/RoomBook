@@ -44,8 +44,8 @@ $active_tablebook = "active";
     <script type="text/javascript">
         $('#table-room').DataTable({
             ajax: '/RoomBook/backend/service/api_detail_book_list.php',
-            dom: 'Bfrtip',
-            buttons: ['copy', 'csv', 'excel', 'colvis'],
+            // dom: 'Bfrtip',
+            // buttons: ['copy', 'csv', 'excel', 'colvis'],
             responsive: true,
             language: {
                 url: './src/assets/DataTables/LanguageTable/th.json'
