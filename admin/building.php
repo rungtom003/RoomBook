@@ -65,7 +65,7 @@ $active_building = "active";
                                     </div>
                                     <div class="col-md">
                                         <label class="form-label">จำนวนชั้น</label>
-                                        <input type="number" class="form-control" placeholder="Number of floors" id="bd_Floor" required>
+                                        <input type="number" class="form-control" placeholder="Number of floors" id="bd_Floor" min="1" required>
                                         <!-- <div class="form-text">Enter your Full name</div> -->
                                         <div class="invalid-feedback">
                                             กรุณากรอก จำนวนชั้น
@@ -73,7 +73,7 @@ $active_building = "active";
                                     </div>
                                     <div class="col-md">
                                         <label class="form-label">จำนวนห้องทั้งหมด</label>
-                                        <input type="number" class="form-control" placeholder="Number of rooms" id="bd_NumRoom" required>
+                                        <input type="number" class="form-control" placeholder="Number of rooms" id="bd_NumRoom" min="1" required>
                                         <!-- <div  class="form-text">Enter your Last name</div> -->
                                         <div class="invalid-feedback">
                                             กรุณากรอก จำนวนห้อง
