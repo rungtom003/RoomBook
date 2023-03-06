@@ -15,6 +15,7 @@ function uniqidReal($lenght = 13)
     return substr(bin2hex($bytes), 0, $lenght);
 }
 
+//ฟังชันก์ process ตารางสอน
 function processDateTime($datestart, $dateend, $timestart, $timeend, $day_of_w = [])
 {
     $result = array();
@@ -149,7 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($conn->multi_query($sql) === TRUE) {
 
                 $url        = 'https://notify-api.line.me/api/notify';
-                $token      = 'iBW9vYfqhFoZPWU2c63eEF4e9yez7F8bdUvdGiEeCqg';
+                $token      = 'RslyE40FjqXaTVn5bOih7xz2Rs37QWP5EMGrVjsX8Nw';
                 $headers    = [
                     'Content-Type: application/x-www-form-urlencoded',
                     'Authorization: Bearer ' . $token

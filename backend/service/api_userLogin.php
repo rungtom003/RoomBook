@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $u_Username = $_POST["u_Username"];
         $u_PasswordHash = $_POST["u_PasswordHash"];
 
-        $sql = "SELECT * FROM room_book.tb_user where u_Username = '".$u_Username."';";
+        $sql = "SELECT * FROM room_book.tb_user where u_Username = '".$u_Username."' and u_StatusDelete = '0';";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $_SESSION["user"] = serialize($row);
             } else {
                 $resp->set_status("fail");
-                $resp->set_message("รหัสผ่านไม่ถูกต้อง ");
+                $resp->set_message("รหัสผ่านไม่ถูกต้อง");
             }
         } else {
             $resp->set_status("fail");

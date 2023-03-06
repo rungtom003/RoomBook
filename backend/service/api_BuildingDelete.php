@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         $bd_id = $_POST["bd_id"];
 
+        //ลบข้อมูลอาคาร/ตึก
         $sql = "DELETE FROM `room_book`.`tb_building` WHERE `bd_id` = '".$bd_id."'; ";
 
         if ($conn->query($sql) === TRUE) {

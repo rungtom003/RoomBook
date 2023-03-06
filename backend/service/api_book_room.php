@@ -44,6 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $sql_check .= " ((b_StartDateTime <= '" . $b_StartDateTime . "' AND b_StartDateTime < '" . $b_EndDateTime . "') AND (b_EndDateTime = '" . $b_StartDateTime . "' AND b_EndDateTime = '" . $b_EndDateTime . "')) OR";
         $sql_check .= " ((b_StartDateTime > '" . $b_StartDateTime . "' AND b_StartDateTime <= '" . $b_EndDateTime . "') AND (b_EndDateTime > '" . $b_StartDateTime . "' AND b_EndDateTime <= '" . $b_EndDateTime . "'))) AND r_Id = '" . $r_Id . "';";
         $result = $conn->query($sql_check);
+
+        //เช็คว่ามีการจองห้องที่มีเวลาทับกันหรือไม่
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 array_push($data_arr, $row);
@@ -52,10 +54,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $resp->set_status("fail");
             $resp->set_message("เวลาในการจองทับกัน โปรดตรวจสอบวันเวลาจองห้อง");
         } else {
+            //ถ้าไม่มีการจองห้องที่มีเวลาทับกันให้สามารถบันทึกข้อมูลการจองห้องได้
             if ($conn->query($sql) === TRUE) {
 
                 $url        = 'https://notify-api.line.me/api/notify';
-                $token      = 'iBW9vYfqhFoZPWU2c63eEF4e9yez7F8bdUvdGiEeCqg';
+                $token      = 'RslyE40FjqXaTVn5bOih7xz2Rs37QWP5EMGrVjsX8Nw';
                 $headers    = [
                     'Content-Type: application/x-www-form-urlencoded',
                     'Authorization: Bearer ' . $token
