@@ -6,6 +6,8 @@ $resp = new Resp();
 $dataUsers = array();
 if ($_SERVER['REQUEST_METHOD'] == "GET") {
     if ($connect_status == "success") {
+
+        //ดึงข้อมูลจากตาราง tb_building เพื่อนำข้อมูลของอาคารทั้งหมดไปโชว์
         $sql = "SELECT * FROM room_book.tb_building;";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {

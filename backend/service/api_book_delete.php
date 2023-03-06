@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         $b_ref = $_POST["b_ref"];
 
+        //ลบข้อมูลการจองห้อง
         $sql = "DELETE FROM `room_book`.`tb_Book` WHERE (`b_ref` = '".$b_ref."');";
 
         if ($conn->query($sql) === TRUE) {
