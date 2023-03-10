@@ -112,7 +112,7 @@ $active_user = "active";
                                     </div>`;
                                 } else {
                                     txtBtn = `<div class="d-grid gap-2 d-md-block" >
-                                        <button class="btn btn-danger" type="button" onclick="user_UpdateStatus(this)" value='${JSON.stringify(row)}' id="btn_Delete" >ลบ</button>
+                                        <button class="btn btn-danger" type="button" onclick="DeleteUser(this)" value='${JSON.stringify(row)}' id="btn_Delete" >ลบ</button>
                                     </div>`;
                                 }
                                 let txtHTML = "";
@@ -187,6 +187,56 @@ $active_user = "active";
             })
 
 
+        }
+
+        const DeleteUser = (elm) =>{
+            const obj = JSON.parse($(elm).val());
+            Swal.fire({
+                title: 'แจ้งเตือน',
+                icon: 'warning',
+                html:"ยืนยันการลบข้อมูล",
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'ยืนยัน',
+                cancelButtonText: 'ยกเลิก',
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    $.ajax({
+                        url: "/RoomBook/backend/service/api_delete_user.php",
+                        type: "POST",
+                        data: {
+                            u_Id: obj.u_Id,
+                        },
+                        dataType: "json",
+                        success: function(res) {
+                            //console.log(res);
+                            let message = res.message;
+                            let status = res.status;
+
+                            if (status == "success") {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: message,
+                                    showConfirmButton: true,
+                                    timer: 1500
+                                }).then((result) => {
+                                    $('#table-user').DataTable().destroy();
+                                    user_Load();
+                                })
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'เเจ้งเตือน',
+                                    text: message
+                                })
+                            }
+                        }
+                    });
+
+                }
+            })
         }
     </script>
 </body>
