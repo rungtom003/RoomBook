@@ -33,7 +33,8 @@ $active_home = "active";
         align-items: center;
         justify-content: center;
         padding: 20px;
-        background: rgb(255, 255, 255);
+        background-image: url("./src/img/S__34299923.jpg");
+        background-size: cover;
     }
 
     .container {
