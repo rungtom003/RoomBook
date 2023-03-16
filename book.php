@@ -271,6 +271,7 @@ $active_book = "active";
             $("#staticBackdropLabel-book_room").html(`จองห้อง # ${room_obj.r_Name}`);
             $("#r_Id").val(room_obj.r_Id);
             $("#r_Name").val(room_obj.r_Name);
+            $('#b_NumParticipant').val(room_obj.r_Seats)
         });
 
         $(document).ready(function() {
