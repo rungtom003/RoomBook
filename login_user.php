@@ -187,6 +187,8 @@ $active_home = "active";
         <span class="signup">Don't have an account?
          <a href="./signup_user.php">สมัครสมาชิก</a>
         </span>
+        <span class="mx-3">|</span>
+        <span><a href="./forgot_password.php">ลืมรหัสผ่าน</a></span>
       </div>
     </section>
 
