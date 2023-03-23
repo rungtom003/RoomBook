@@ -65,6 +65,12 @@
                 สมัครสมาชิก
             </a>
         </li>
+        <li class="sidebar-menu-item <?= isset($active_manage_img) ? $active_manage_img : "" ?>">
+            <a href="/RoomBook/admin/manage_img.php">
+                <i class="ri-image-edit-line sidebar-menu-item-icon"></i>
+                จัดการรูปหน้าเเรก
+            </a>
+        </li>
     </ul>
 </div>
 <div class="sidebar-overlay"></div>
