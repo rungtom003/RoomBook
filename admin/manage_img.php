@@ -84,36 +84,48 @@ $active_manage_img = "active";
             const formFile = document.getElementById("formFile").files[0];
             const formData = new FormData();
             formData.append('imgformFile', formFile);
+            const fileName = formFile.name;
+            const extension = fileName.split('.').pop();
+
             if (formFile !== undefined) {
-                $.ajax({
-                    url: "/RoomBook/backend/service/api_add_img.php",
-                    type: "POST",
-                    data: formData,
-                    dataType: "json",
-                    contentType: false,
-                    processData: false,
-                    success: function(res) {
-                        let message = res.message;
+                if (extension === "jpg") {
+                    $.ajax({
+                        url: "/RoomBook/backend/service/api_add_img.php",
+                        type: "POST",
+                        data: formData,
+                        dataType: "json",
+                        contentType: false,
+                        processData: false,
+                        success: function(res) {
+                            let message = res.message;
 
-                        if (res.status == "success") {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'success',
-                                text: message,
-                                willClose: function() {
-                                    window.location.reload();
-                                }
-                            })
+                            if (res.status == "success") {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'success',
+                                    text: message,
+                                    willClose: function() {
+                                        window.location.reload();
+                                    }
+                                })
 
-                        } else {
-                            Swal.fire({
-                                icon: 'warning',
-                                title: 'เเจ้งเตือน',
-                                text: message
-                            })
+                            } else {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'เเจ้งเตือน',
+                                    text: message
+                                })
+                            }
                         }
-                    }
-                });
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'เเจ้งเตือน',
+                        text: `ไม่สามารถอัพโหลดไฟล์ ${extension} ได้ กรุณาอัพโหลดไฟล์ jpg`
+                    })
+                }
+
             } else {
                 Swal.fire({
                     icon: 'warning',
