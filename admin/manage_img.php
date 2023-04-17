@@ -135,6 +135,7 @@ $active_manage_img = "active";
                 })
             }
 
+
         }
 
         const deletefile = (elm) => {
