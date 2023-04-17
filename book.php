@@ -170,7 +170,7 @@ $active_book = "active";
                             </div>
                         </div>
                         <div class="form-floating my-1">
-                            <input type="number" min="1" class="form-control" id="b_NumParticipant" placeholder="จำนวนผู้ใช้ห้อง">
+                            <input type="number" min="1" class="form-control" id="b_NumParticipant" placeholder="จำนวนผู้ใช้ห้อง" readonly>
                             <label for="b_NumParticipant">จำนวนผู้ใช้ห้อง</label>
                             <div class="invalid-feedback">
                                 กรุณากรอกจำนวนผู้ใช้ห้อง

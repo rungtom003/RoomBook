@@ -127,7 +127,6 @@ $active_manage_img = "active";
                     })
                 }
 
-
             } else {
                 Swal.fire({
                     icon: 'warning',
