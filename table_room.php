@@ -35,6 +35,26 @@ $active_tableroom = "active";
                         <table id="table-room" class="table table-striped w-100 text-nowrap"></table>
                     </div>
                 </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">แผนที่</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="d-flex justify-content-center">
+                                    <img src="./src/img/60338.jpg" class="img-fluid">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
             <!-- end: Content -->
         </div>
@@ -105,7 +125,8 @@ $active_tableroom = "active";
                     data: null,
                     defaultContent: "",
                     render: function(data, type, row, meta) {
-                        let txtHTML = `<a target="_blank" href="http://www.google.com/maps/place/${row.bd_Lat},${row.bd_Lng}/@${row.bd_Lat},${row.bd_Lng},17z">แผนที่</a>`;
+                        //let txtHTML = `<a target="_blank" href="http://www.google.com/maps/place/${row.bd_Lat},${row.bd_Lng}/@${row.bd_Lat},${row.bd_Lng},17z">แผนที่</a>`;
+                        let txtHTML = `<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">แผนที่</button>`;
                         return txtHTML;
                     }
                 }

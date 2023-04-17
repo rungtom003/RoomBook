@@ -109,13 +109,7 @@ $active_user = "active";
                                 if (u_Approve == 0) {
                                     txtBtn = `<button class="btn btn-primary" type="button" onclick="ApproveUser(this)" value='${JSON.stringify(row)}' id="btn_Approve" >อนุมัติ</button>`;
                                 } else {
-<<<<<<< HEAD
-                                    txtBtn = `<div class="d-grid gap-2 d-md-block" >
-                                        <button class="btn btn-danger" type="button" onclick="DeleteUser(this)" value='${JSON.stringify(row)}' id="btn_Delete" >ลบ</button>
-                                    </div>`;
-=======
                                     txtBtn = `<button class="btn btn-warning" type="button" onclick="ApproveUser(this)" value='${JSON.stringify(row)}' id="btn_Cancel" >ยกเลิก</button>`;
->>>>>>> a9b0834977b82bbc9a668b3c3b7deb4e00cbc855
                                 }
                                 let txtHTML = "";
                                 return `<div class="d-grid gap-2 d-md-block" >
@@ -243,8 +237,6 @@ $active_user = "active";
                 }
             })
         }
-<<<<<<< HEAD
-=======
 
         const ApproveUser = (elm) =>{
             const obj = JSON.parse($(elm).val());
@@ -306,7 +298,6 @@ $active_user = "active";
             })
         }
 
->>>>>>> a9b0834977b82bbc9a668b3c3b7deb4e00cbc855
     </script>
 </body>
 
