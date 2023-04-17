@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($connect_status == "success") {
         $bd_id = $_POST["bd_id"];
 
+        //ดึงข้อมูลจากตาราง tb_building เพื่อนำไปโชว์รายละเอียดต่างๆของอาคาร
         $sql = "SELECT * FROM room_book.tb_building where bd_id = '" . $bd_id . "';";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {

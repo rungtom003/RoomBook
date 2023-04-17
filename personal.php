@@ -42,12 +42,12 @@ if ($user == null) {
                                         <div class="col-md">
                                             <label for="u_FirstName" class="form-label">ชื่อ</label>
                                             <input type="text" class="form-control" placeholder="FirstName" id="u_FirstName" value="<?=$user["u_FirstName"]?>">
-                                            <div id="emailHelp" class="form-text">We'll </div>
+                                            <!-- <div id="emailHelp" class="form-text">We'll </div> -->
                                         </div>
                                         <div class="col-md">
                                             <label for="u_LastName" class="form-label">นามสกุล</label>
                                             <input type="text" class="form-control" placeholder="LastName" id="u_LastName" value="<?=$user["u_LastName"]?>">
-                                            <div id="emailHelp" class="form-text">We'll </div>
+                                            <!-- <div id="emailHelp" class="form-text">We'll </div> -->
                                         </div>
                                     </div>
 
@@ -56,26 +56,26 @@ if ($user == null) {
                                         <div class="col-md">
                                             <label for="u_Faculty" class="form-label">คณะ</label>
                                             <input type="text" class="form-control" placeholder="Faculty" id="u_Faculty" value="<?=$user["u_Faculty"]?>">
-                                            <div id="emailHelp" class="form-text">We'll </div>
+                                            <!-- <div id="emailHelp" class="form-text">We'll </div> -->
                                         </div>
                                         <div class="col-md">
                                             <label for="u_Position" class="form-label">ตำแหน่ง</label>
                                             <input type="text" class="form-control" placeholder="Position" id="u_Position" value="<?=$user["u_Position"]?>">
-                                            <div id="emailHelp" class="form-text">We'll </div>
+                                            <!-- <div id="emailHelp" class="form-text">We'll </div> -->
                                         </div>
                                     </div>
                                     <div class="row g-2 p-2">
                                         <div class="col-md">
                                             <label for="u_PasswordHash" class="form-label">Password</label>
                                             <input type="Password" class="form-control" placeholder="Password" id="u_PasswordHash" >
-                                            <div id="emailHelp" class="form-text">We'll </div>
+                                            <!-- <div id="emailHelp" class="form-text">We'll </div> -->
                                         </div>
                                     </div>
                                     <div class="row g-2 p-2">
                                         <div class="col-md">
                                             <label for="u_Phone" class="form-label">เบอร์โทรศัพท์</label>
                                             <input type="text" class="form-control" placeholder="Phone" id="u_Phone" value="<?=$user["u_Phone"]?>">
-                                            <div id="emailHelp" class="form-text">We'll </div>
+                                            <!-- <div id="emailHelp" class="form-text">We'll </div> -->
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>

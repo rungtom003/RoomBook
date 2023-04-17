@@ -6,10 +6,9 @@ $resp = new Resp();
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($connect_status == "success") {
 
-        $b_ref = $_POST["b_ref"];
+        $u_Id = $_POST["u_Id"];
 
-        //ลบข้อมูลการจองห้อง
-        $sql = "DELETE FROM `room_book`.`tb_Book` WHERE (`b_ref` = '".$b_ref."');";
+        $sql = "DELETE FROM `room_book`.`tb_user` WHERE (`u_Id` = '".$u_Id."');";
 
         if ($conn->query($sql) === TRUE) {
             $resp->set_message("ลบข้อมูลสำเร็จ");
@@ -25,8 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 } else {
     $resp->set_message("Request method fail.");
-    $resp->set_status("fail");
+    $resp->set_status("");
 }
 
 echo json_encode($resp);
-

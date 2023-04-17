@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $bd_Lat = $_POST["bd_Lat"];
         $bd_Lng = $_POST["bd_Lng"];
 
+        //อัพเดทข้อมูลอาคาร/ตึก
         $sql = "UPDATE `room_book`.`tb_building` SET `bd_Name` = '" . $bd_Name . "', `bd_Floor` = '".$bd_Floor."', `bd_NumRoom`='".$bd_NumRoom."',";
         $sql .= "`bd_Detail`='".$bd_Detail."',`bd_Address`='".$bd_Address."',`bd_Road`='".$bd_Road."',`bd_Subdistrict`='".$bd_Subdistrict."', ";
         $sql .="`bd_District`='".$bd_District."',`bd_Province` = '".$bd_Province."', `bd_DateTimeUpdate` = '".$bd_DateTimeUpdate."',  ";

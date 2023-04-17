@@ -7,7 +7,7 @@
     <div class="dropdown">
         <div class="d-flex align-items-center cursor-pointer dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="me-2 d-none d-sm-block" style="font-family: kanit-Regular;"><?php echo isset($user["u_FirstName"]) ? $user["u_FirstName"] : "" ?> <?php echo isset($user["u_LastName"]) ? $user["u_LastName"] : "" ?></span>
-            <img class="navbar-profile-image" src="/ReserveSpace/src/img/user.jpg" alt="Image">
+            <img class="navbar-profile-image" src="/RoomBook/src/img/user.jpg" alt="Image">
         </div>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item" style="font-family: kanit-Regular;" href="/RoomBook/personal.php">ข้อมูลส่วนตัว</a></li>

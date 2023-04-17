@@ -33,7 +33,8 @@ $active_home = "active";
         align-items: center;
         justify-content: center;
         padding: 20px;
-        background: rgb(255, 255, 255);
+        background-image: url("./src/img/S__34299923.jpg");
+        background-size: cover;
     }
 
     .container {
@@ -186,6 +187,8 @@ $active_home = "active";
         <span class="signup">Don't have an account?
          <a href="./signup_user.php">สมัครสมาชิก</a>
         </span>
+        <span class="mx-3">|</span>
+        <span><a href="./forgot_password.php">ลืมรหัสผ่าน</a></span>
       </div>
     </section>
 

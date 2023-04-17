@@ -105,13 +105,13 @@ $active_classroom_timetable = "active";
                                     <label for="select-building">อาคาร/ตึก</label>
                                 </div>
                             </div>
-                            <div class="col-sm-4 my-1">
+                            <!-- <div class="col-sm-4 my-1">
                                 <div class="form-floating my-1">
                                     <select class="form-select" aria-label="เลือกชั้น" id="select-floor">
                                     </select>
                                     <label for="select-floor">ชั้น</label>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-sm-4 my-1">
                                 <div class="form-floating my-1">
                                     <select class="form-select" aria-label="เลือกประเภทห้อง" id="select-roomtype">
@@ -304,6 +304,8 @@ $active_classroom_timetable = "active";
             $("#staticBackdropLabel-book_room").html(`จองห้อง # ${room_obj.r_Name}`);
             $("#r_Id").val(room_obj.r_Id);
             $("#r_Name").val(room_obj.r_Name);
+            $("#b_NumParticipant").val(room_obj.r_Seats);
+            
         });
 
         $(document).ready(function() {

@@ -3,21 +3,24 @@ include "../class/resp.php";
 include "../config/connectiondb.php";
 
 $resp = new Resp();
-$dataUsers = array();
-if ($_SERVER['REQUEST_METHOD'] == "GET") {
+$dataArr = array();
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($connect_status == "success") {
 
-        //ดึงข้อมูลจากตาราง tb_building เพื่อนำข้อมูลของอาคารทั้งหมดไปโชว์
-        $sql = "SELECT * FROM room_book.tb_building;";
+        $u_Phone = $_POST['u_Phone'];
+        $u_Username = $_POST['u_Username'];
+
+        $sql = "SELECT * FROM room_book.tb_user where u_Phone = '".$u_Phone."' and u_Username = '".$u_Username."';";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                array_push($dataUsers,$row);
+                array_push($dataArr,$row);
             }
-            $resp->data = $dataUsers;
-            $resp->set_status("seccess");
+            $resp->data = $dataArr;
+            $resp->set_status("success");
         }
         else{
+            $resp->data = [];
             $resp->set_status("fail");
         }
     } else {
@@ -28,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 else
 {
     $resp->set_message("Request method fail.");
-    $resp->set_status("");
+    $resp->set_status("fail");
 }
 
 echo json_encode($resp);

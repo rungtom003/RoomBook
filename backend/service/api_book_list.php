@@ -6,6 +6,8 @@ $resp = new Resp();
 $dataArr = array();
 if ($_SERVER['REQUEST_METHOD'] == "GET") {
     if ($connect_status == "success") {
+
+        //ดึงข้อมูลจากฐานข้อมูลเพื่อนำไปโชว์ในหน้า ข้อมูลการจองห้อง
         $sql = "SELECT DISTINCT a.b_ref,a.u_Id,b.u_Position,b.u_FirstName,b.u_LastName,b.u_Faculty,a.r_Id,c.r_Name,a.b_Head,ut_Id,a.b_NumParticipant,a.b_DateTime FROM  room_book.tb_Book as a inner join room_book.tb_user as b on a.u_Id = b.u_Id inner join room_book.tb_room as c on a.r_Id = c.r_Id where b_StatusCancel = '0';";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
