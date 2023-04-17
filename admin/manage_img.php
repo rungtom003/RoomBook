@@ -84,6 +84,7 @@ $active_manage_img = "active";
             const formFile = document.getElementById("formFile").files[0];
             const formData = new FormData();
             formData.append('imgformFile', formFile);
+
             const fileName = formFile.name;
             const extension = fileName.split('.').pop();
 
@@ -133,7 +134,6 @@ $active_manage_img = "active";
                     text: 'กรุณาเลือกรูปภาพ'
                 })
             }
-
 
         }
 
