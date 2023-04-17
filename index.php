@@ -64,6 +64,21 @@ $fileList = glob('./src/img/index_Carousel/*.jpg');
                     </div>
                 </div>
 
+                <div class="card my-3">
+                    <div class="card-body">
+                        <div class="row" id="images" data-masonry='{"percentPosition": true }'>
+                            <?php
+                            $fileList = glob('./src/img/index_Carousel/*.jpg');
+                            foreach ($fileList as $filename) {
+                                if (is_file($filename)) {
+                                    //echo $filename, '<br>';
+                            ?>
+                                    <div class="col-lg-3 my-1"><img class="img-thumbnail" src="<?= $filename ?>"></div>
+                            <?php }
+                            } ?>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- end: Content -->
         </div>
@@ -71,6 +86,7 @@ $fileList = glob('./src/img/index_Carousel/*.jpg');
     <!-- end: Main -->
     <?php include("./layout/script.php"); ?>
     <script>
+        const viewer = new Viewer(document.getElementById('images'));
     </script>
 </body>
 
