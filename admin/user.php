@@ -104,19 +104,18 @@ $active_user = "active";
                             data: null,
                             defaultContent: "",
                             render: function(data, type, row, meta) {
-                                const u_StatusDelete = row.u_StatusDelete;
+                                const u_Approve = row.u_Approve;
                                 let txtBtn = "";
-                                if (u_StatusDelete == 1) {
-                                    txtBtn = `<div class="d-grid gap-2 d-md-block" >
-                                        <button class="btn btn-primary" type="button" onclick="user_UpdateStatus(this)" value='${JSON.stringify(row)}' id="btn_Add" >เพิ่ม</button>
-                                    </div>`;
+                                if (u_Approve == 0) {
+                                    txtBtn = `<button class="btn btn-primary" type="button" onclick="ApproveUser(this)" value='${JSON.stringify(row)}' id="btn_Approve" >อนุมัติ</button>`;
                                 } else {
-                                    txtBtn = `<div class="d-grid gap-2 d-md-block" >
-                                        <button class="btn btn-danger" type="button" onclick="DeleteUser(this)" value='${JSON.stringify(row)}' id="btn_Delete" >ลบ</button>
-                                    </div>`;
+                                    txtBtn = `<button class="btn btn-warning" type="button" onclick="ApproveUser(this)" value='${JSON.stringify(row)}' id="btn_Cancel" >ยกเลิก</button>`;
                                 }
                                 let txtHTML = "";
-                                return txtBtn;
+                                return `<div class="d-grid gap-2 d-md-block" >
+                                        ${txtBtn}
+                                        <button class="btn btn-danger" type="button" onclick="DeleteUser(this)" value='${JSON.stringify(row)}' id="btn_Delete" >ลบ</button>
+                                    </div>`;
                             }
                         }
                     ]
@@ -238,6 +237,67 @@ $active_user = "active";
                 }
             })
         }
+
+        const ApproveUser = (elm) =>{
+            const obj = JSON.parse($(elm).val());
+            let u_Approve = obj.u_Approve;
+            let message = "";
+            if(u_Approve == 1){
+                u_Approve = 0;
+                message = "ยืนยันการยกเลิกผู้ใช้";
+            }else if(u_Approve == 0){
+                u_Approve = 1;
+                message = "ยืนยันการอนุมัติผู้ใช้";
+            }
+            Swal.fire({
+                title: 'แจ้งเตือน',
+                icon: 'warning',
+                html: message,
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'ยืนยัน',
+                cancelButtonText: 'ยกเลิก',
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    $.ajax({
+                        url: "/RoomBook/backend/service/api_userApprove.php",
+                        type: "POST",
+                        data: {
+                            u_Id: obj.u_Id,
+                            u_Approve: u_Approve
+                        },
+                        dataType: "json",
+                        success: function(res) {
+                            //console.log(res);
+                            let message = res.message;
+                            let status = res.status;
+
+                            if (status == "success") {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: message,
+                                    showConfirmButton: true,
+                                    timer: 1500
+                                }).then((result) => {
+                                    $('#table-user').DataTable().destroy();
+                                    user_Load();
+                                })
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'เเจ้งเตือน',
+                                    text: message
+                                })
+                            }
+                        }
+                    });
+
+                }
+            })
+        }
+
     </script>
 </body>
 
