@@ -99,41 +99,60 @@ $active_dataBookRoom = "active";
         });
 
         const btnDelete = (elm) => {
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            });
 
-            $.ajax({
-                url: '/RoomBook/backend/service/api_book_delete.php',
-                type: 'post',
-                data: {
-                    b_ref: elm.value
-                },
-                dataType: 'json',
-                success: function(res) {
-                    if (res.status === "success") {
-                        Toast.fire({
-                            icon: 'success',
-                            title: res.message
-                        });
-                        dt_table.ajax.reload();
-                    } else {
-                        Toast.fire({
-                            icon: 'warning',
-                            title: res.message
-                        });
-                        dt_table.ajax.reload();
-                    }
+            Swal.fire({
+                title: 'แจ้งเตือน',
+                icon: 'warning',
+                html: "ยืนยันการลบข้อมูลการจอง",
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'ยืนยัน',
+                cancelButtonText: 'ยกเลิก',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    });
+                    $.ajax({
+                        url: '/RoomBook/backend/service/api_book_delete.php',
+                        type: 'post',
+                        data: {
+                            b_ref: elm.value
+                        },
+                        dataType: 'json',
+                        success: function(res) {
+                            if (res.status === "success") {
+                                Toast.fire({
+                                    icon: 'success',
+                                    title: res.message
+                                });
+                                dt_table.ajax.reload();
+                            } else {
+                                Toast.fire({
+                                    icon: 'warning',
+                                    title: res.message
+                                });
+                                dt_table.ajax.reload();
+                            }
+                        }
+                    });
+
                 }
-            });
+            })
+
+
+
+
+
         }
     </script>
 </body>
