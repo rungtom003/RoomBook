@@ -23,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $u_PasswordHash = $_POST["u_PasswordHash"];
 
         $sql = "SELECT * FROM room_book.tb_user where u_Username = '" . $u_Username . "';";
-
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
@@ -41,7 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             } else {
                 $resp->set_status("fail");
                 $resp->set_message("รอการอนุมัติจาก Admin");
-
             }
         } else {
             $resp->set_status("fail");
