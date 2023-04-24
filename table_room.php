@@ -32,6 +32,10 @@ $active_tableroom = "active";
             <div class="py-1" style="font-family: kanit-Regular;">
                 <div class="card">
                     <div class="card-body">
+                        <div class="d-flex justify-content-end my-3">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">แผนที่</button>
+                        </div>
+
                         <table id="table-room" class="table table-striped w-100 text-nowrap"></table>
                     </div>
                 </div>
@@ -119,17 +123,18 @@ $active_tableroom = "active";
                     targets: 9,
                     title: "จังหวัด",
                     data: "bd_Province",
-                }, {
-                    targets: 10,
-                    title: "แผนที่",
-                    data: null,
-                    defaultContent: "",
-                    render: function(data, type, row, meta) {
-                        //let txtHTML = `<a target="_blank" href="http://www.google.com/maps/place/${row.bd_Lat},${row.bd_Lng}/@${row.bd_Lat},${row.bd_Lng},17z">แผนที่</a>`;
-                        let txtHTML = `<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">แผนที่</button>`;
-                        return txtHTML;
-                    }
-                }
+                },
+                // {
+                //     targets: 10,
+                //     title: "แผนที่",
+                //     data: null,
+                //     defaultContent: "",
+                //     render: function(data, type, row, meta) {
+                //         //let txtHTML = `<a target="_blank" href="http://www.google.com/maps/place/${row.bd_Lat},${row.bd_Lng}/@${row.bd_Lat},${row.bd_Lng},17z">แผนที่</a>`;
+                //         let txtHTML = `<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">แผนที่</button>`;
+                //         return txtHTML;
+                //     }
+                // }
             ]
         });
     </script>

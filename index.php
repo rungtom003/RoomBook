@@ -73,7 +73,7 @@ $fileList = glob('./src/img/index_Carousel/*.jpg');
                                 if (is_file($filename)) {
                                     //echo $filename, '<br>';
                             ?>
-                                    <div class="col-lg-3 my-1"><img class="img-thumbnail" src="<?= $filename ?>"></div>
+                                    <div class="col-lg-2 my-1"><img class="img-thumbnail" src="<?= $filename ?>"></div>
                             <?php }
                             } ?>
                         </div>
